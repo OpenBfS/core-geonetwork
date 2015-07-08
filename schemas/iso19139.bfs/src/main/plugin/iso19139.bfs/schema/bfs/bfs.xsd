@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://geonetwork.org/bfs"
+	elementFormDefault="qualified" version="0.1"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:gco="http://www.isotc211.org/2005/gco" 
+	xmlns:gmd="http://www.isotc211.org/2005/gmd"
+	xmlns:bfs="http://geonetwork.org/bfs">
+
+	<xs:import namespace="http://www.isotc211.org/2005/gco"
+		schemaLocation="../gco/gco.xsd" />
+	<xs:import namespace="http://www.isotc211.org/2005/gts"
+		schemaLocation="../gts/gts.xsd" />
+	<xs:import namespace="http://www.isotc211.org/2005/gmd"
+		schemaLocation="../gmd/gmd.xsd" />
+	<xs:import namespace="http://www.isotc211.org/2005/srv"
+		schemaLocation="../srv/srv.xsd" />
+	<xs:import namespace="http://www.opengis.net/gml"
+		schemaLocation="../gml/gml.xsd" />
+
+	<!-- ================================= Annotation ================================ -->
+	<xs:annotation>
+		<xs:documentation>Modifications to add BFS extensions
+			//TODO explain better
+		</xs:documentation>
+	</xs:annotation>
+
+
+	<!-- ============================================================================== -->
+	<!-- ================================ MD_Metadata ================================= -->
+	<!-- ============================================================================== -->
+
+
+	<xs:complexType name="MD_Metadata_Type">
+		<xs:annotation>
+			<xs:documentation>
+				Extends the metadata element to include BFS layer description 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="gmd:MD_Metadata_Type">
+				<xs:sequence>
+					<xs:element name="layerInformation" type="bfs:LayerInformationType"
+						minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute ref="gco:isoType" use="required" fixed="gmd:MD_Metadata" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:element name="MD_Metadata" substitutionGroup="gmd:MD_Metadata"
+		type="bfs:MD_Metadata_Type" />
+
+	<xs:complexType name="MD_Metadata_PropertyType">
+		<xs:sequence minOccurs="0">
+			<xs:element ref="bfs:MD_Metadata" />
+		</xs:sequence>
+		<xs:attributeGroup ref="gco:ObjectReference" />
+		<xs:attribute ref="gco:nilReason" />
+	</xs:complexType>
+	
+	
+    <!-- ============================================================================== -->
+    <!-- ============================= LayerInformation =============================== -->
+    <!-- ============================================================================== -->
+	
+    <xs:complexType name="LayerInformationType">
+        <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="url" type="bfs:url" />
+            <xs:element name="inspireID" type="bfs:InspireIDType" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    
+    <!-- ============================================================================== -->
+    <!-- ============================= Layer URL ====================================== -->
+    <!-- ============================================================================== -->
+    <!--<bfs:url>
+          <gco:CharacterString>http://www.imis.bfs.de/cgi-public/wms_geoportal</gco:CharacterString>
+         </bfs:url>-->
+         
+    <xs:complexType name="url">
+        <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element ref="gco:CharacterString" />
+        </xs:sequence>
+    </xs:complexType>
+           
+    <!-- ============================================================================== -->
+    <!-- ============================ Inspire ID ====================================== -->
+    <!-- ============================================================================== -->
+    <!--
+        <bfs:inspireId>
+            <gco:CharacterString>cbad26f3-6b69-4864-87bf-123af356adf4
+            </gco:CharacterString>
+        </bfs:inspireId>-->
+         
+    <xs:complexType name="InspireIDType">
+        <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element ref="gco:CharacterString" />
+        </xs:sequence>
+    </xs:complexType>
+       
+       
+    <!-- ============================================================================== -->
+</xs:schema>

@@ -54,5 +54,8 @@
   <system systemId="http://www.w3.org/1999/xlink/xlinks.xsd"
           uri="schema/xlink/xlinks.xsd"/>
 
+  <!-- Bfs -->
 
+  <system systemId="http://geonetwork.org/bfs"
+          uri="schema/bfs/bfs.xsd"/>
 </catalog>

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bfs:MD_Metadata xmlns:gco="http://www.isotc211.org/2005/gco"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:gts="http://www.isotc211.org/2005/gts"
+	xmlns:gml="http://www.opengis.net/gml" 
+	xmlns:gmd="http://www.isotc211.org/2005/gmd"
+    xmlns:bfs="http://geonetwork.org/bfs">
+	<!-- Layer identifier -->
+	<gmd:fileIdentifier>
+		<gco:CharacterString>ddaf3fa1-7a69-4864-95ce-019be126eef2
+		</gco:CharacterString>
+	</gmd:fileIdentifier>
+	<gmd:language>
+		<gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/"
+			codeListValue="eng" />
+	</gmd:language>
+	<gmd:characterSet>
+		<gmd:MD_CharacterSetCode codeListValue="utf8"
+			codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_CharacterSetCode" />
+	</gmd:characterSet>
+	<gmd:contact>
+		<gmd:CI_ResponsibleParty>
+			<gmd:individualName gco:nilReason="missing">
+				<gco:CharacterString />
+			</gmd:individualName>
+			<gmd:organisationName gco:nilReason="missing">
+				<gco:CharacterString />
+			</gmd:organisationName>
+			<gmd:positionName gco:nilReason="missing">
+				<gco:CharacterString />
+			</gmd:positionName>
+			<gmd:contactInfo>
+				<gmd:CI_Contact>
+					<gmd:phone>
+						<gmd:CI_Telephone>
+							<gmd:voice gco:nilReason="missing">
+								<gco:CharacterString />
+							</gmd:voice>
+							<gmd:facsimile gco:nilReason="missing">
+								<gco:CharacterString />
+							</gmd:facsimile>
+						</gmd:CI_Telephone>
+					</gmd:phone>
+					<gmd:address>
+						<gmd:CI_Address>
+							<gmd:deliveryPoint gco:nilReason="missing">
+								<gco:CharacterString />
+							</gmd:deliveryPoint>
+							<gmd:city gco:nilReason="missing">
+								<gco:CharacterString />
+							</gmd:city>
+							<gmd:administrativeArea gco:nilReason="missing">
+								<gco:CharacterString />
+							</gmd:administrativeArea>
+							<gmd:postalCode gco:nilReason="missing">
+								<gco:CharacterString />
+							</gmd:postalCode>
+							<gmd:country gco:nilReason="missing">
+								<gco:CharacterString />
+							</gmd:country>
+							<gmd:electronicMailAddress
+								gco:nilReason="missing">
+								<gco:CharacterString />
+							</gmd:electronicMailAddress>
+						</gmd:CI_Address>
+					</gmd:address>
+				</gmd:CI_Contact>
+			</gmd:contactInfo>
+			<gmd:role>
+				<gmd:CI_RoleCode codeListValue="pointOfContact"
+					codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_RoleCode" />
+			</gmd:role>
+		</gmd:CI_ResponsibleParty>
+	</gmd:contact>
+	<gmd:dateStamp>
+		<gco:DateTime>2015-06-30T15:26:54</gco:DateTime>
+	</gmd:dateStamp>
+	<gmd:metadataStandardName>
+		<gco:CharacterString>ISO 19115:2003/19139</gco:CharacterString>
+	</gmd:metadataStandardName>
+	<gmd:metadataStandardVersion>
+		<gco:CharacterString>1.0</gco:CharacterString>
+	</gmd:metadataStandardVersion>
+	<gmd:identificationInfo>
+		<gmd:MD_DataIdentification>
+			<gmd:citation>
+				<gmd:CI_Citation>
+					<!-- Layer title -->
+					<gmd:title>
+						<gco:CharacterString>Cs 137 in Milch</gco:CharacterString>
+					</gmd:title>
+					<gmd:date>
+						<gmd:CI_Date>
+							<gmd:date>
+								<gco:DateTime>2015-01-30T00:00:00</gco:DateTime>
+							</gmd:date>
+							<gmd:dateType>
+								<gmd:CI_DateTypeCode codeListValue="publication"
+									codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_DateTypeCode" />
+							</gmd:dateType>
+						</gmd:CI_Date>
+					</gmd:date>
+				</gmd:CI_Citation>
+			</gmd:citation>
+			<gmd:abstract gco:nilReason="missing">
+				<gco:CharacterString />
+			</gmd:abstract>
+			<gmd:language>
+				<gco:CharacterString>eng</gco:CharacterString>
+			</gmd:language>
+		</gmd:MD_DataIdentification>
+	</gmd:identificationInfo>
+
+	<!-- Additional BfS information -->
+	<bfs:layerInformation>
+		<!-- Layer url -->
+		<bfs:url>
+			<gco:CharacterString>http://www.imis.bfs.de/cgi-public/wms_geoportal
+			</gco:CharacterString>
+		</bfs:url>
+
+		<!-- Inspire Id -->
+		<bfs:inspireId>
+			<gco:CharacterString>cbad26f3-6b69-4864-87bf-123af356adf4
+			</gco:CharacterString>
+		</bfs:inspireId>
+
+		<!-- Layer type: WMS, WFS, etc -->
+		<bfs:layerType>
+			<bfs:MD_LayerTypeCode codeListValue="WMS"
+				codeList="ML_gmxCodelists.xml#MD_LayerTypeCode" />
+		</bfs:layerType>
+
+		<!-- Some additional simple properties: printurl, etc. not added here -->
+
+		<!-- Topics: taken from some controlled vocabulary? To check if can fit 
+			with iso19193 topic categories -->
+		<!-- Multiple topics can be defined -->
+		<bfs:topics>
+			<bfs:topic>
+				<gco:CharacterString>biota</gco:CharacterString>
+			</bfs:topic>
+			<bfs:topic>
+				<gco:CharacterString>air</gco:CharacterString>
+			</bfs:topic>
+		</bfs:topics>
+
+		<!-- Filters: multiple filters can be defined -->
+		<bfs:filters>
+			<!-- Single value free -->
+			<!-- Single value list: Not very clear, means that values are taken from 
+				a controlled vocabulary I guess? -->
+			<bfs:singleValueFilter>
+				<bfs:filter>
+					<bfs:paramName>
+						<gco:CharacterString>NAME</gco:CharacterString>
+					</bfs:paramName>
+
+					<bfs:value>
+						<gco:CharacterString>Amsterdamn</gco:CharacterString>
+					</bfs:value>
+				</bfs:filter>
+			</bfs:singleValueFilter>
+
+			<!-- Multiple value list -->
+			<bfs:multipleValueFilter>
+				<!-- Filter 1 -->
+				<bfs:filter>
+					<bfs:paramName>
+						<gco:CharacterString>NAME</gco:CharacterString>
+					</bfs:paramName>
+
+					<bfs:value>
+						<gco:CharacterString>Amsterdamn</gco:CharacterString>
+					</bfs:value>
+				</bfs:filter>
+
+				<!-- Filter 2 -->
+				<bfs:filter>
+					<bfs:paramName>
+						<gco:CharacterString>NAME</gco:CharacterString>
+					</bfs:paramName>
+
+					<bfs:value>
+						<gco:CharacterString>Bonn</gco:CharacterString>
+					</bfs:value>
+				</bfs:filter>
+
+			</bfs:multipleValueFilter>
+
+			<!-- Time range date filter -->
+			<bfs:timeRangeFilter>
+				<bfs:paramName>
+					<gco:CharacterString>DATUM</gco:CharacterString>
+				</bfs:paramName>
+
+				<bfs:startDate>
+					<bfs:timeFormat>
+						<gco:CharacterString>%Y-%m-%d</gco:CharacterString>
+					</bfs:timeFormat>
+					<gml:TimeInstant>
+						<gml:timePosition>2015-06-30</gml:timePosition>
+					</gml:TimeInstant>
+				</bfs:startDate>
+
+				<bfs:endDate>
+					<bfs:timeFormat>
+						<gco:CharacterString>%Y-%m-%d</gco:CharacterString>
+					</bfs:timeFormat>
+					<gml:TimeInstant>
+						<gml:timePosition>2015-07-30</gml:timePosition>
+					</gml:TimeInstant>
+				</bfs:endDate>
+			</bfs:timeRangeFilter>
+
+			<!-- Time instant date filter -->
+			<bfs:timeInstantFilter>
+				<bfs:paramName>
+					<gco:CharacterString>DATUM2</gco:CharacterString>
+				</bfs:paramName>
+
+				<bfs:date>
+					<bfs:timeFormat>
+						<gco:CharacterString>%Y-%m-%d</gco:CharacterString>
+					</bfs:timeFormat>
+					<gml:TimeInstant>
+						<gml:timePosition>2015-06-30</gml:timePosition>
+					</gml:TimeInstant>
+				</bfs:date>
+			</bfs:timeInstantFilter>
+
+			<!-- Geographic extent filter -->
+			<bfs:geoExtentFilter>
+				<bfs:paramName>
+					<gco:CharacterString>BBOX</gco:CharacterString>
+				</bfs:paramName>
+
+				<gmd:geographicElement>
+					<gmd:EX_GeographicBoundingBox>
+						<gmd:westBoundLongitude>
+							<gco:Decimal>-118.125</gco:Decimal>
+						</gmd:westBoundLongitude>
+						<gmd:eastBoundLongitude>
+							<gco:Decimal>119.53125</gco:Decimal>
+						</gmd:eastBoundLongitude>
+						<gmd:southBoundLatitude>
+							<gco:Decimal>-38.671875</gco:Decimal>
+						</gmd:southBoundLatitude>
+						<gmd:northBoundLatitude>
+							<gco:Decimal>113.203125</gco:Decimal>
+						</gmd:northBoundLatitude>
+					</gmd:EX_GeographicBoundingBox>
+				</gmd:geographicElement>
+			</bfs:geoExtentFilter>
+
+			<!-- RODOS filter -->
+			<bfs:rodos>
+				<bfs:paramName>
+					<gco:CharacterString>server</gco:CharacterString>
+				</bfs:paramName>
+
+				<gmd:URL>http://server</gmd:URL>
+			</bfs:rodos>
+		</bfs:filters>
+
+		<!-- Openlayers section of JSON: multiple key/value properties can be defined -->
+		<bfs:olProperties>
+			<bfs:property>
+				<bfs:name>
+					<gco:CharacterString>isBaseLayer</gco:CharacterString>
+				</bfs:name>
+				<bfs:value>
+					<gco:CharacterString>false</gco:CharacterString>
+				</bfs:value>
+			</bfs:property>
+
+			<bfs:property>
+				<bfs:name>
+					<gco:CharacterString>singleTile</gco:CharacterString>
+				</bfs:name>
+				<bfs:value>
+					<gco:CharacterString>true</gco:CharacterString>
+				</bfs:value>
+			</bfs:property>
+		</bfs:olProperties>
+
+		<!-- Similar sections for Charts/cartodiagram as the OpenLayers section: 
+			TO BE PROVIDED, but similar structure -->
+	</bfs:layerInformation>
+</bfs:MD_Metadata>

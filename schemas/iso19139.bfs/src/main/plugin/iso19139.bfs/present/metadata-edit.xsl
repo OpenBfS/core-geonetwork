@@ -5,17 +5,18 @@
   xmlns:srv="http://www.isotc211.org/2005/srv" xmlns:gml="http://www.opengis.net/gml"
   xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:geonet="http://www.fao.org/geonetwork"
   xmlns:exslt="http://exslt.org/common"
+    xmlns:bfs="http://geonetwork.org/bfs"
   exclude-result-prefixes="gmd gco gml gts srv xlink exslt geonet">
 
   <!-- Simple views is ISO19139 -->
   <xsl:template name="metadata-iso19139.bfsview-simple">
-    <xsl:call-template name="metadata-iso19139view-simple"/>
+    <xsl:call-template name="metadata-iso19139.bfsview-simple"/>
   </xsl:template>
 
   <xsl:template name="view-with-header-iso19139.bfs">
     <xsl:param name="tabs"/>
 
-    <xsl:call-template name="view-with-header-iso19139">
+    <xsl:call-template name="view-with-header-iso19139.bfs">
       <xsl:with-param name="tabs" select="$tabs"/>
     </xsl:call-template>
   </xsl:template>
@@ -121,7 +122,7 @@
 
 
   <!-- Based template for dispatching each tabs -->
-  <xsl:template mode="iso19139.bfs" match="gmd:MD_Metadata|*[@gco:isoType='gmd:MD_Metadata']"
+  <xsl:template mode="iso19139.bfs" match="bfs:MD_Metadata|*[@gco:isoType='bfs:MD_Metadata']"
     priority="3">
     <xsl:param name="schema"/>
     <xsl:param name="edit"/>
@@ -133,7 +134,7 @@
 
       <!-- metadata tab -->
       <xsl:when test="$currTab='metadata'">
-        <xsl:call-template name="iso19139Metadata">
+        <xsl:call-template name="iso19139.bfsMetadata">
           <xsl:with-param name="schema" select="$schema"/>
           <xsl:with-param name="edit" select="$edit"/>
         </xsl:call-template>
@@ -269,7 +270,7 @@
 
       <!-- ISOAll tab -->
       <xsl:when test="$currTab='ISOAll'">
-        <xsl:call-template name="iso19139Complete">
+        <xsl:call-template name="iso19139.bfsComplete">
           <xsl:with-param name="schema" select="$schema"/>
           <xsl:with-param name="edit" select="$edit"/>
         </xsl:call-template>
@@ -294,7 +295,7 @@
       </xsl:when>-->
       <!-- default -->
       <xsl:otherwise>
-        <xsl:call-template name="iso19139Simple">
+        <xsl:call-template name="iso19139.bfsSimple">
           <xsl:with-param name="schema" select="$schema"/>
           <xsl:with-param name="edit" select="$edit"/>
           <xsl:with-param name="flat"
