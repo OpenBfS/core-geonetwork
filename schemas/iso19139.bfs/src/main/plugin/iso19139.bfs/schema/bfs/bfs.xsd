@@ -32,8 +32,7 @@
 		<xs:complexContent>
 			<xs:extension base="gmd:MD_Metadata_Type">
 				<xs:sequence>
-					<xs:element name="layerInformation" type="bfs:LayerInformationType"
-						minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="layerInformation" type="bfs:MD_Layer_PropertyType" />
 				</xs:sequence>
 				<xs:attribute ref="gco:isoType" use="required" fixed="gmd:MD_Metadata"/>
 			</xs:extension>
@@ -53,20 +52,33 @@
 
 	<!-- ============================================================================== -->
 	<!-- ============================= LayerInformation =============================== -->
-	<!-- ============================================================================== -->
-
-	<xs:complexType name="LayerInformationType">
+	<!-- ============================================================================== -->	
+	<xs:complexType name="MD_Layer_Type">
 		<xs:annotation>
-			<xs:documentation>Information about the metadata</xs:documentation>
+			<xs:documentation>Information about the layer</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="InspireID" type="gco:CharacterString_PropertyType"/>
-			<xs:element ref="bfs:AbstractLayerType" />
-			<xs:element ref="bfs:WFS" minOccurs="0" />
-			<xs:element ref="bfs:Download" minOccurs="0"/>
-			<xs:element ref="bfs:Filters"/>
-			<xs:element ref="bfs:OLProperties"/>
-		</xs:sequence>			
+		<xs:complexContent>
+			<xs:extension base="gco:AbstractObject_Type">
+			<xs:sequence>
+				<xs:element name="inspireID" type="gco:CharacterString_PropertyType"/>				
+				<xs:element name="layerType" type="bfs:MD_LayerType_PropertyType" />
+				<xs:element ref="bfs:wfs" minOccurs="0" />
+				<xs:element ref="bfs:download" minOccurs="0"/>
+				<xs:element name="filter" type="bfs:MD_Filter_PropertyType" minOccurs="0" maxOccurs="unbounded" />
+				<xs:element ref="bfs:olProperties"/>
+			</xs:sequence>	
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- ........................................................................ -->
+	<xs:element name="MD_Layer" type="bfs:MD_Layer_Type"/>
+	<!-- ........................................................................ -->
+	<xs:complexType name="MD_Layer_PropertyType">
+		<xs:sequence minOccurs="0">
+			<xs:element ref="bfs:MD_Layer"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="gco:ObjectReference"/>
+		<xs:attribute ref="gco:nilReason"/>
 	</xs:complexType>
 
 	<!-- ============================================================================== -->
@@ -75,70 +87,94 @@
 	
 	<!-- =========================================================================== -->
 	<!-- ========================= Abstract LayerType ============================== -->
-	<xs:complexType name="AbstractLayerType_Type" abstract="true">
+	<xs:complexType name="MD_LayerType_Type" abstract="true">
+		<xs:annotation>
+			<xs:documentation></xs:documentation>
+		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="gco:AbstractObject_Type">
-				<xs:sequence/>
+				<xs:sequence>
+					
+				</xs:sequence>
 			</xs:extension>
-		</xs:complexContent>
+		</xs:complexContent>		
 	</xs:complexType>
 	<!-- ........................................................................ -->
-	<xs:element name="AbstractLayerType" type="bfs:AbstractLayerType_Type" abstract="true"/>
+	<xs:element name="MD_LayerType" type="bfs:MD_LayerType_Type" abstract="true"/>
 	<!-- ........................................................................ -->
+	<xs:complexType name="MD_LayerType_PropertyType">
+		<xs:sequence minOccurs="1">
+			<xs:element ref="bfs:MD_LayerType"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="gco:ObjectReference"/>
+		<xs:attribute ref="gco:nilReason"/>
+	</xs:complexType>
 	
 	<!-- =========================================================================== -->
 	<!-- =================================== WMS =================================== -->
-	<xs:complexType name="WMSLayerType_Type">
+	<xs:complexType name="MD_WMSLayerType_Type">
 		<xs:annotation>
-			<xs:documentation></xs:documentation>
+			<xs:documentation>.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="bfs:AbstractLayerType_Type">
+			<xs:extension base="bfs:MD_LayerType_Type">
 				<xs:sequence>
 					<xs:element ref="bfs:URL"/>		
-					<xs:element name="layers" type="gco:CharacterString_PropertyType"/>	
+					<xs:element name="layer" type="gco:CharacterString_PropertyType"/>	
 					<xs:element name="transparent" type="gco:Boolean_PropertyType"/>	
 					<xs:element name="version" type="gco:CharacterString_PropertyType"/>	
 					<xs:element name="styles" type="gco:CharacterString_PropertyType"/>	
 					<xs:element name="format" type="gco:CharacterString_PropertyType"/>	
-					<xs:element name="timeExtendStart" type="gco:DateTime_PropertyType"/>	
-					<xs:element name="timeExtendEnd" type="gco:DateTime_PropertyType"/>	
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ........................................................................ -->
-	<xs:element name="WMS" type="bfs:WMSLayerType_Type" substitutionGroup="bfs:AbstractLayerType"/>
+	<xs:element name="MD_WMSLayerType" type="bfs:MD_WMSLayerType_Type" substitutionGroup="bfs:MD_LayerType"/>
 	<!-- ........................................................................ -->
+	<xs:complexType name="MD_WMSLayerType_PropertyType">
+		<xs:sequence minOccurs="1">
+			<xs:element ref="bfs:MD_WMSLayerType"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="gco:ObjectReference"/>
+		<xs:attribute ref="gco:nilReason"/>
+	</xs:complexType>
+		
 		
 	<!-- =========================================================================== -->
 	<!-- =================================== WMTS ================================== -->
-	<xs:complexType name="WMTSLayerType_Type">
+	<xs:complexType name="MD_WMTSLayerType_Type">
 		<xs:annotation>
-			<xs:documentation></xs:documentation>
+			<xs:documentation>.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="bfs:AbstractLayerType_Type">
+			<xs:extension base="bfs:MD_LayerType_Type">
 				<xs:sequence>
-					<xs:element ref="bfs:URL"/>
-					<xs:element name="layers" type="gco:CharacterString_PropertyType"/>	
+					<xs:element ref="bfs:URL"/>		
+					<xs:element name="layer" type="gco:CharacterString_PropertyType"/>
+					<xs:element name="tilematrixset" type="gco:CharacterString_PropertyType"/>						
 					<xs:element name="transparent" type="gco:Boolean_PropertyType"/>	
 					<xs:element name="version" type="gco:CharacterString_PropertyType"/>	
 					<xs:element name="styles" type="gco:CharacterString_PropertyType"/>	
 					<xs:element name="format" type="gco:CharacterString_PropertyType"/>	
-					<xs:element name="timeExtendStart" type="gco:DateTime_PropertyType"/>	
-					<xs:element name="timeExtendEnd" type="gco:DateTime_PropertyType"/>					
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ........................................................................ -->
-	<xs:element name="WMTS" type="bfs:WMTSLayerType_Type" substitutionGroup="bfs:AbstractLayerType"/>
+	<xs:element name="MD_WMTSLayerType" type="bfs:MD_WMTSLayerType_Type" substitutionGroup="bfs:MD_LayerType"/>
 	<!-- ........................................................................ -->
+	<xs:complexType name="MD_WMTSLayerType_PropertyType">
+		<xs:sequence minOccurs="1">
+			<xs:element ref="bfs:MD_WMTSLayerType"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="gco:ObjectReference"/>
+		<xs:attribute ref="gco:nilReason"/>
+	</xs:complexType>
 	
 	<!-- =========================================================================== -->
-	<!-- =================================== WMTS ================================== -->
-	<xs:complexType name="TMSLayerType_Type">
+	<!-- =================================== TMS =================================== -->
+	<!--<xs:complexType name="TMSLayerType_Type">
 		<xs:annotation>
 			<xs:documentation></xs:documentation>
 		</xs:annotation>
@@ -146,7 +182,7 @@
 			<xs:extension base="bfs:AbstractLayerType_Type">
 				<xs:sequence>
 					<xs:element ref="bfs:URL"/>		
-					<xs:element name="layers" type="gco:CharacterString_PropertyType"/>	
+					<xs:element name="layer" type="gco:CharacterString_PropertyType"/>	
 					<xs:element name="transparent" type="gco:Boolean_PropertyType"/>	
 					<xs:element name="version" type="gco:CharacterString_PropertyType"/>	
 					<xs:element name="styles" type="gco:CharacterString_PropertyType"/>	
@@ -156,9 +192,9 @@
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
-	</xs:complexType>
+	</xs:complexType>-->
 	<!-- ........................................................................ -->
-	<xs:element name="TMS" type="bfs:TMSLayerType_Type" substitutionGroup="bfs:AbstractLayerType"/>
+	<!--<xs:element name="TMS" type="bfs:TMSLayerType_Type" substitutionGroup="bfs:AbstractLayerType"/>-->
 	<!-- ........................................................................ -->
 	
 	
@@ -171,8 +207,8 @@
 	<!-- ........................................................................ -->
 	<xs:complexType name="URL_Type">
 		<xs:sequence minOccurs="1" maxOccurs="1">
-			<xs:element name="Host" type="gco:CharacterString_PropertyType"/>
-			<xs:element name="Path" type="gco:CharacterString_PropertyType"/>
+			<xs:element name="host" type="gco:CharacterString_PropertyType"/>
+			<xs:element name="path" type="gco:CharacterString_PropertyType"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -181,7 +217,7 @@
 	<!-- ============================================================================== -->
 
 	<!-- ........................................................................ -->
-	<xs:element name="OLProperties" type="bfs:olProperties_Type"/>
+	<xs:element name="olProperties" type="bfs:olProperties_Type"/>
 	<!-- ........................................................................ -->
 	<xs:complexType name="olProperties_Type">
 		<xs:sequence>
@@ -194,8 +230,8 @@
 	<!-- ........................................................................ -->
 	<xs:complexType name="Property_Type">
 		<xs:sequence>
-			<xs:element name="Name" type="gco:CharacterString_PropertyType"/>
-			<xs:element name="Value" type="gco:CharacterString_PropertyType"/>
+			<xs:element name="name" type="gco:CharacterString_PropertyType"/>
+			<xs:element name="value" type="gco:CharacterString_PropertyType"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -203,49 +239,61 @@
 	<!-- ============================= Filters ====================================== -->
 	<!-- ============================================================================== -->
 
-	<!-- ........................................................................ -->
-	<xs:element name="Filters" type="bfs:FiltersType"/>
-	<!-- ........................................................................ -->
-	<xs:complexType name="FiltersType">
-		<xs:sequence>
-			<xs:element ref="bfs:AbstractFilter" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-	
+
 	<!-- =========================================================================== -->
 	<!-- ========================= Abstract filter ================================= -->
-	<xs:complexType name="AbstractFilter_Type" abstract="true">
-		<xs:complexContent>
-			<xs:extension base="gco:AbstractObject_Type">
-				<xs:sequence/>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<!-- ........................................................................ -->
-	<xs:element name="AbstractFilter" type="bfs:AbstractFilter_Type" abstract="true"/>
-	<!-- ........................................................................ -->
-	
-	<!-- =========================================================================== -->
-	<!-- ========================= Single value filter ============================= -->
-	<xs:complexType name="SingleValueFilter_Type">
+	<xs:complexType name="MD_Filter_Type" abstract="true">
 		<xs:annotation>
 			<xs:documentation></xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="bfs:AbstractFilter_Type">
+			<xs:extension base="gco:AbstractObject_Type">
 				<xs:sequence>
-					<xs:element name="Filter" type="bfs:SimpleValueFilter_Type"/>					
+					
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>		
+	</xs:complexType>
+	<!-- ........................................................................ -->
+	<xs:element name="MD_Filter" type="bfs:MD_Filter_Type" abstract="true"/>
+	<!-- ........................................................................ -->
+	<xs:complexType name="MD_Filter_PropertyType">
+		<xs:sequence minOccurs="1">
+			<xs:element ref="bfs:MD_Filter"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="gco:ObjectReference"/>
+		<xs:attribute ref="gco:nilReason"/>
+	</xs:complexType>
+	
+	<!-- =========================================================================== -->
+	<!-- ========================= Single value filter ============================= -->
+	<xs:complexType name="MD_SingleValueFilter_Type">
+		<xs:annotation>
+			<xs:documentation>.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="bfs:MD_Filter_Type">
+				<xs:sequence>
+					<xs:element name="paramName" type="gco:CharacterString_PropertyType"/>
+					<xs:element name="value" type="gco:CharacterString_PropertyType"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ........................................................................ -->
-	<xs:element name="SingleValueFilter" type="bfs:SingleValueFilter_Type" substitutionGroup="bfs:AbstractFilter"/>
+	<xs:element name="MD_SingleValueFilter" type="bfs:MD_SingleValueFilter_Type" substitutionGroup="bfs:MD_Filter"/>
 	<!-- ........................................................................ -->
+	<xs:complexType name="MD_SingleValueFilter_PropertyType">
+		<xs:sequence minOccurs="0">
+			<xs:element ref="bfs:MD_SingleValueFilter"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="gco:ObjectReference"/>
+		<xs:attribute ref="gco:nilReason"/>
+	</xs:complexType>
 	
 	<!-- =========================================================================== -->
 	<!-- ========================= Multiple value filter ============================= -->
-	<xs:complexType name="MultipleValueFilter_Type">
+	<!--<xs:complexType name="MultipleValueFilter_Type">
 		<xs:annotation>
 			<xs:documentation></xs:documentation>
 		</xs:annotation>
@@ -256,20 +304,20 @@
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
-	</xs:complexType>
+	</xs:complexType>-->
 	<!-- ........................................................................ -->
-	<xs:element name="MultipleValueFilter" type="bfs:MultipleValueFilter_Type" substitutionGroup="bfs:AbstractFilter"/>
+	<!--<xs:element name="MultipleValueFilter" type="bfs:MultipleValueFilter_Type" substitutionGroup="bfs:AbstractFilter"/>-->
 	<!-- ........................................................................ -->
 	
 	
 	<!-- =========================================================================== -->
 	<!-- =========================== GeoExtent filter ============================== -->
-	<xs:complexType name="GeoExtentFilter_Type">
+	<xs:complexType name="MD_GeoExtentFilter_Type">
 		<xs:annotation>
-			<xs:documentation></xs:documentation>
+			<xs:documentation>.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="bfs:AbstractFilter_Type">
+			<xs:extension base="bfs:MD_Filter_Type">
 				<xs:sequence>
 					<xs:element name="paramName" type="gco:CharacterString_PropertyType"/>
 					<xs:element name="geographicElement" type="gmd:EX_GeographicExtent_PropertyType" />
@@ -278,37 +326,51 @@
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ........................................................................ -->
-	<xs:element name="GeoExtentFilter" type="bfs:GeoExtentFilter_Type" substitutionGroup="bfs:AbstractFilter"/>
+	<xs:element name="MD_GeoExtentFilter" type="bfs:MD_GeoExtentFilter_Type" substitutionGroup="bfs:MD_Filter"/>
 	<!-- ........................................................................ -->
+	<xs:complexType name="MD_GeoExtentFilter_PropertyType">
+		<xs:sequence minOccurs="0">
+			<xs:element ref="bfs:MD_GeoExtentFilter"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="gco:ObjectReference"/>
+		<xs:attribute ref="gco:nilReason"/>
+	</xs:complexType>
 	
 	<!-- =========================================================================== -->
 	<!-- =========================== TimeRange filter ============================== -->
-	<xs:complexType name="TimeRangeFilter_Type">
+	<xs:complexType name="MD_TimeRangeFilter_Type">
 		<xs:annotation>
 			<xs:documentation></xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="bfs:AbstractFilter_Type">
+			<xs:extension base="bfs:MD_Filter_Type">
 				<xs:sequence>
 					<xs:element name="paramName" type="gco:CharacterString_PropertyType"/>
-					<xs:element name="startDate" type="bfs:Date_Type" />
-					<xs:element name="endDate" type="bfs:Date_Type" />
+					<xs:element name="minDate" type="bfs:Date_Type" />
+					<xs:element name="maxDate" type="bfs:Date_Type" />
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ........................................................................ -->
-	<xs:element name="TimeRangeFilter" type="bfs:TimeRangeFilter_Type" substitutionGroup="bfs:AbstractFilter"/>
+	<xs:element name="MD_TimeRangeFilter" type="bfs:MD_TimeRangeFilter_Type" substitutionGroup="bfs:MD_Filter"/>
 	<!-- ........................................................................ -->
-	
+	<xs:complexType name="MD_TimeRangeFilter_PropertyType">
+		<xs:sequence minOccurs="0">
+			<xs:element ref="bfs:MD_TimeRangeFilter"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="gco:ObjectReference"/>
+		<xs:attribute ref="gco:nilReason"/>
+	</xs:complexType>
+		
 	<!-- =========================================================================== -->
-	<!-- =========================== TimeInstant filter ============================== -->
-	<xs:complexType name="TimeInstantFilter_Type">
+	<!-- =========================== PointInTime filter ============================ -->
+	<xs:complexType name="MD_PointInTimeFilter_Type">
 		<xs:annotation>
 			<xs:documentation></xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="bfs:AbstractFilter_Type">
+			<xs:extension base="bfs:MD_Filter_Type">
 				<xs:sequence>
 					<xs:element name="paramName" type="gco:CharacterString_PropertyType"/>
 					<xs:element name="date" type="bfs:Date_Type" />
@@ -317,17 +379,24 @@
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ........................................................................ -->
-	<xs:element name="TimeInstantFilter" type="bfs:TimeInstantFilter_Type" substitutionGroup="bfs:AbstractFilter"/>
+	<xs:element name="MD_PointInTimeFilter" type="bfs:MD_PointInTimeFilter_Type" substitutionGroup="bfs:MD_Filter"/>
 	<!-- ........................................................................ -->
-	
+	<xs:complexType name="MD_PointInTimeFilter_PropertyType">
+		<xs:sequence minOccurs="0">
+			<xs:element ref="bfs:MD_PointInTimeFilter"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="gco:ObjectReference"/>
+		<xs:attribute ref="gco:nilReason"/>
+	</xs:complexType>
+		
 	<!-- =========================================================================== -->
 	<!-- ============================= RODOS filter ================================ -->
-	<xs:complexType name="RodosFilter_Type">
+	<xs:complexType name="MD_RodosFilter_Type">
 		<xs:annotation>
-			<xs:documentation></xs:documentation>
+			<xs:documentation>.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="bfs:AbstractFilter_Type">
+			<xs:extension base="bfs:MD_Filter_Type">
 				<xs:sequence>
 					<xs:element name="paramName" type="gco:CharacterString_PropertyType"/>
 					<xs:element ref="bfs:URL"/>
@@ -336,26 +405,22 @@
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ........................................................................ -->
-	<xs:element name="RodosFilter" type="bfs:RodosFilter_Type" substitutionGroup="bfs:AbstractFilter"/>
+	<xs:element name="MD_RodosFilter" type="bfs:MD_RodosFilter_Type" substitutionGroup="bfs:MD_Filter"/>
 	<!-- ........................................................................ -->
-	
-	<xs:complexType name="SimpleValueFilter_Type">	
-		<xs:sequence>
-			<xs:element name="paramName" type="gco:CharacterString_PropertyType"/>
-			<xs:element name="value" type="gco:CharacterString_PropertyType"/>
+	<xs:complexType name="MD_RodosFilter_PropertyType">
+		<xs:sequence minOccurs="0">
+			<xs:element ref="bfs:MD_RodosFilter"/>
 		</xs:sequence>
+		<xs:attributeGroup ref="gco:ObjectReference"/>
+		<xs:attribute ref="gco:nilReason"/>
 	</xs:complexType>
-	<!-- ........................................................................ -->
-	<xs:element name="SimpleValueFilter" type="bfs:SingleValueFilter_Type" />
-	<!-- ........................................................................ -->
-	
 	
 	<!-- ============================================================================== -->
 	<!-- ============================= WFS ======================================= -->
 	<!-- ============================================================================== -->
 	
 	<!-- ........................................................................ -->
-	<xs:element name="WFS" type="bfs:WFS_Type"/>
+	<xs:element name="wfs" type="bfs:WFS_Type"/>
 	<!-- ........................................................................ -->
 	<xs:complexType name="WFS_Type">
 		<xs:sequence>
@@ -368,7 +433,7 @@
 	<!-- ============================================================================== -->
 
 	<!-- ........................................................................ -->
-	<xs:element name="Download" type="bfs:Download_Type"/>
+	<xs:element name="download" type="bfs:Download_Type"/>
 	<!-- ........................................................................ -->
 	<xs:complexType name="Download_Type">
 		<xs:sequence>
