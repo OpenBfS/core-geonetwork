@@ -57,7 +57,7 @@
 
 
   <!-- Visit all XML tree recursively -->
-  <xsl:template mode="mode-iso19139.bfs" match="gmd:*|gmx:*|gml:*|srv:*|gts:*">
+  <xsl:template mode="mode-iso19139.bfs" match="gmd:*|gmx:*|gml:*|srv:*|gts:*|bfs:*">
     <xsl:param name="schema" select="$schema" required="no"/>
     <xsl:param name="labels" select="$labels" required="no"/>
 
@@ -292,7 +292,7 @@
 
   </xsl:template>
 
-<!--
+
   <xsl:template mode="mode-iso19139" priority="200"
     match="*[gco:Date|gco:DateTime]">
     <xsl:param name="schema" select="$schema" required="no"/>
@@ -323,7 +323,7 @@
       data-required="{$isRequired}"
       data-hide-time="{if ($viewConfig/@hideTimeInCalendar = 'true') then 'true' else 'false'}">
     </div>
-  </xsl:template>-->
+  </xsl:template>
 
 
   <!-- Match codelist values.

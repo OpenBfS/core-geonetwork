@@ -44,5 +44,4 @@
     <xsl:value-of select="saxon:evaluate(concat('$p1', $in), $base)"/>
   </xsl:template>
 
-
 </xsl:stylesheet>

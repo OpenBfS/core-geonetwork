@@ -3,9 +3,201 @@
   xsi:noNamespaceSchemaLocation="../../../labels.xsd" xmlns:gco="http://www.isotc211.org/2005/gco"
   xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:srv="http://www.isotc211.org/2005/srv"
   xmlns:gml="http://www.opengis.net/gml" xmlns:gts="http://www.isotc211.org/2005/gts"
-  xmlns:gmx="http://www.isotc211.org/2005/gmx">
+  xmlns:gmx="http://www.isotc211.org/2005/gmx" xmlns:bfs="http://geonetwork.org/bfs">
   <!-- Overrides iso19139 labels -->
 
   <!-- Add profile specific labels -->
 
+  <element name="bfs:MD_Metadata">
+    <label>Metadata</label>
+    <abbrLabel>Metadata</abbrLabel>
+    <description>Root entity which defines metadata about a resource or resources</description>
+  </element>
+
+  <element name="bfs:LayerInformation">
+    <label>Layer Information</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:inspireID">
+    <label>INSPIRE Identifier</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:wms">
+    <label>WMS</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:wfs">
+    <label>WFS</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:download">
+    <label>Download</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:host">
+    <label>Host</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:path">
+    <label>Path</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:olProperties">
+    <label>OpenLayers Properties</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:Property">
+    <label>Property</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:name">
+    <label>Name</label>
+    <description></description>
+    <helper>
+      <option value="buffer">buffer</option>
+      <option value="displayInLayerSwitcher">displayInLayerSwitcher</option>
+      <option value="isBaseLayer">isBaseLayer</option>
+      <option value="ratio">ratio</option>
+      <option value="singleTile">singleTile</option>
+    </helper>
+  </element>
+
+  <element name="bfs:value">
+    <label>Value</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:filters">
+    <label>Filters</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:placeholderStart">
+    <label>Placeholder Start</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:placeholderEnd">
+    <label>Placeholder End</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:TimeRangeFilter">
+    <label>Time Range Filter</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:startDate">
+    <label>Start Date</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:endDate">
+    <label>End Date</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:paramName">
+    <label>Parameter</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:TimeFormat">
+    <label>Time Format</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:TimeInstant">
+    <label>Time</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:MD_SingleValueFilter">
+    <label>Single Value Filter</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:MD_GeoExtentFilter">
+    <label>Geographic Extent Filter</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:MD_RodosFilter">
+    <label>RODOS Filter</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:MD_PointInTimeFilter">
+    <label>Point in Time Filter</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:MD_TimeRangeFilter">
+    <label>Time Range Filter</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:filter">
+    <label>Layer Filters</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:layerType">
+    <label>Layer Type</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:MD_WMSLayerType">
+    <label>WMS</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:MD_WMTSLayerType">
+    <label>WMTS</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:layer">
+    <label>Layer</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:transparent">
+    <label>Transparent</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:version">
+    <label>Version</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:styles">
+    <label>Styles</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:tilematrixset">
+    <label>Tile Matrix Set</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:format">
+    <label>Format</label>
+    <description></description>
+    <helper>
+      <option name="image/gif">image/gif</option>
+      <option name="image/jpg">image/jpg</option>
+      <option name="image/png">image/png</option>
+    </helper>
+  </element>
 </labels>
