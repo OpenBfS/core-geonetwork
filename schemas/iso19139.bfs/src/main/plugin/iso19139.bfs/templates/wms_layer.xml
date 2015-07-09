@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bfs:MD_Metadata xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gmd="http://www.isotc211.org/2005/gmd"
+   xmlns:gml="http://www.opengis.net/gml" xmlns:gsr="http://www.isotc211.org/2005/gsr"
+   xmlns:sch="http://www.ascc.net/xml/schematron" xmlns:srv="http://www.isotc211.org/2005/srv"
+   xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gss="http://www.isotc211.org/2005/gss"
+   xmlns:bfs="http://geonetwork.org/bfs" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://geonetwork.org/bfs file:/Users/jose/workspace/bfs/schemas/iso19139.bfs/src/main/plugin/iso19139.bfs/schema/bfs/bfs.xsd"
+   gco:isoType="gmd:MD_Metadata">
+   <!-- Layer identifier -->
+   <gmd:fileIdentifier>
+      <gco:CharacterString>ddaf3fa1-7a69-4864-95ce-019be126eef2</gco:CharacterString>
+   </gmd:fileIdentifier>
+   <gmd:language>
+      <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/" codeListValue="eng"/>
+   </gmd:language>
+   <gmd:characterSet>
+      <gmd:MD_CharacterSetCode codeListValue="utf8" codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_CharacterSetCode"/>
+   </gmd:characterSet>
+   <gmd:hierarchyLevel>
+      <gmd:MD_ScopeCode codeList="" codeListValue=""/>
+   </gmd:hierarchyLevel>
+   <gmd:contact/>
+   <gmd:dateStamp>
+      <gco:DateTime>2015-06-30T15:26:54</gco:DateTime>
+   </gmd:dateStamp>
+   <gmd:metadataStandardName>
+      <gco:CharacterString>ISO 19115:2003/19139</gco:CharacterString>
+   </gmd:metadataStandardName>
+   <gmd:metadataStandardVersion>
+      <gco:CharacterString>1.0</gco:CharacterString>
+   </gmd:metadataStandardVersion>
+   <gmd:identificationInfo>
+      <gmd:MD_DataIdentification>
+         <gmd:citation>
+            <gmd:CI_Citation>
+               <!-- Layer Name - dspText  -->
+               <gmd:title>
+                  <gco:CharacterString>Cs 137 in Milch</gco:CharacterString>
+               </gmd:title>
+               <gmd:date>
+                  <gmd:CI_Date>
+                     <gmd:date>
+                        <gco:DateTime>2015-01-30T00:00:00</gco:DateTime>
+                     </gmd:date>
+                     <gmd:dateType>
+                        <gmd:CI_DateTypeCode codeListValue="publication" codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_DateTypeCode"/>
+                     </gmd:dateType>
+                  </gmd:CI_Date>
+               </gmd:date>
+            </gmd:CI_Citation>
+         </gmd:citation>
+         <gmd:abstract gco:nilReason="missing">
+            <gco:CharacterString/>
+         </gmd:abstract>
+         <gmd:status/>
+         <gmd:language>
+            <gco:CharacterString>eng</gco:CharacterString>
+         </gmd:language>
+      </gmd:MD_DataIdentification>
+   </gmd:identificationInfo>
+
+   <bfs:layerInformation>
+      <!-- Inspire ID: Mandatory-->
+      <bfs:InspireID>
+         <gco:CharacterString>acaf4fb2-7a69-4864-95ce-019be126eef2</gco:CharacterString>
+      </bfs:InspireID>
+
+      <!-- Layer type section: Mandatory 1 of these bfs:WMS, bfs:WMTS or bfs:TMS, only 1 can be defined -->
+      <bfs:WMS>
+         <bfs:URL>
+            <bfs:Host>
+               <gco:CharacterString>http://test-appsrv1-fr.lab.bfs.de</gco:CharacterString>
+            </bfs:Host>
+            <bfs:Path>
+               <gco:CharacterString>/cgi-public/wms_inspire_uv?</gco:CharacterString>
+            </bfs:Path>
+         </bfs:URL>
+         <bfs:layers>
+            <gco:CharacterString>ef.environmentalmonitoringfacility</gco:CharacterString>
+         </bfs:layers>
+         <bfs:transparent>
+            <gco:Boolean>true</gco:Boolean>
+         </bfs:transparent>
+         <bfs:version>
+            <gco:CharacterString>1.1.1</gco:CharacterString>
+         </bfs:version>
+         <bfs:styles>
+            <gco:CharacterString>EF.EnvironmentalMonitoringFacilities.Default</gco:CharacterString>
+         </bfs:styles>
+         <bfs:format>
+            <gco:CharacterString>image/png</gco:CharacterString>
+         </bfs:format>
+         <bfs:timeExtendStart/>
+         <bfs:timeExtendEnd/>
+      </bfs:WMS>
+      
+      <!-- WFS: Optional -->
+      <bfs:WFS>
+         <bfs:URL>
+            <bfs:Host></bfs:Host>
+            <bfs:Path></bfs:Path>
+         </bfs:URL>
+      </bfs:WFS>
+      
+      <!-- Download: Optional -->
+      <bfs:Download>
+         <bfs:URL>
+            <bfs:Host>
+               <gco:CharacterString>http://test-appsrv1-fr.lab.bfs.de</gco:CharacterString>
+            </bfs:Host>
+            <bfs:Path>
+               <gco:CharacterString>/deegree-webservices/services/wfs_uv_messstationen?service=WFS&amp;request=GetFeature&amp;VERSION=2.0.0&amp;TYPENAME=ef:EnvironmentalMonitoringFacility&amp;outputformat=application%2Fgml%2Bxml%3B version%3D3.2&amp;resolveDepth=*</gco:CharacterString>
+            </bfs:Path>
+         </bfs:URL>
+         <bfs:PlaceholderStart><gco:DateTime>2015-05-15T00:00:00</gco:DateTime></bfs:PlaceholderStart>
+         <bfs:PlaceholderEnd><gco:DateTime>2015-05-15T00:00:10</gco:DateTime></bfs:PlaceholderEnd>
+      </bfs:Download>
+
+
+      <!-- Filters -->
+      <bfs:Filters>
+         <!-- Multiple filters can be defined -->
+         <!--<bfs:SingleValueFilter>
+            <bfs:Filter>
+               <bfs:paramName/>
+               <bfs:value/>
+            </bfs:Filter>
+         </bfs:SingleValueFilter>
+         <bfs:MultipleValueFilter>
+            <bfs:Filter>
+               <bfs:paramName/>
+               <bfs:value/>
+            </bfs:Filter>
+            <bfs:Filter>
+               <bfs:paramName/>
+               <bfs:value/>
+            </bfs:Filter>
+            <bfs:Filter>
+               <bfs:paramName/>
+               <bfs:value/>
+            </bfs:Filter>
+         </bfs:MultipleValueFilter>-->
+         
+         <bfs:TimeRangeFilter>
+            <bfs:paramName></bfs:paramName>
+            <bfs:startDate>
+               <bfs:TimeFormat></bfs:TimeFormat>
+               <bfs:TimeInstant><gco:DateTime>2015-05-15T00:00:00</gco:DateTime></bfs:TimeInstant>
+            </bfs:startDate>
+            <bfs:endDate>
+               <bfs:TimeFormat></bfs:TimeFormat>
+               <bfs:TimeInstant><gco:DateTime>2015-06-30T00:00:00</gco:DateTime></bfs:TimeInstant>
+            </bfs:endDate>
+         </bfs:TimeRangeFilter>
+      </bfs:Filters>
+
+      <!-- OpenLayers Properties -->
+      <bfs:OLProperties>
+         <bfs:Property>
+            <bfs:Name>
+               <gco:CharacterString>isBaseLayer</gco:CharacterString>
+            </bfs:Name>
+            <bfs:Value>
+               <gco:CharacterString>false</gco:CharacterString>
+            </bfs:Value>
+         </bfs:Property>
+
+         <bfs:Property>
+            <bfs:Name>
+               <gco:CharacterString>singleTile</gco:CharacterString>
+            </bfs:Name>
+            <bfs:Value>
+               <gco:CharacterString>true</gco:CharacterString>
+            </bfs:Value>
+         </bfs:Property>
+
+         <bfs:Property>
+            <bfs:Name>
+               <gco:CharacterString>singleTile</gco:CharacterString>
+            </bfs:Name>
+            <bfs:Value>
+               <gco:CharacterString>true</gco:CharacterString>
+            </bfs:Value>
+         </bfs:Property>
+
+         <bfs:Property>
+            <bfs:Name>
+               <gco:CharacterString>ratio</gco:CharacterString>
+            </bfs:Name>
+            <bfs:Value>
+               <gco:CharacterString>1,0</gco:CharacterString>
+            </bfs:Value>
+         </bfs:Property>
+
+         <bfs:Property>
+            <bfs:Name>
+               <gco:CharacterString>buffer</gco:CharacterString>
+            </bfs:Name>
+            <bfs:Value>
+               <gco:CharacterString>1,0</gco:CharacterString>
+            </bfs:Value>
+         </bfs:Property>
+ 
+         <bfs:Property>
+            <bfs:Name>
+               <gco:CharacterString>displayInLayerSwitcher</gco:CharacterString>
+            </bfs:Name>
+            <bfs:Value>
+               <gco:CharacterString>true</gco:CharacterString>
+            </bfs:Value>
+         </bfs:Property>
+         
+      </bfs:OLProperties>
+   </bfs:layerInformation>
+</bfs:MD_Metadata>
