@@ -41,7 +41,20 @@
              scope.dateTypeSupported = Modernizr.inputtypes.date;
              scope.isValidDate = true;
              scope.hideTime = scope.hideTime == 'true';
-             var datePattern = new RegExp('^\\d{4}$|' +
+             var namespaces = {
+               iso19139: {
+                 gco: gnNamespaces.gco,
+                 gml: gnNamespaces.gml
+               },
+               'iso19139.bfs': {
+                 gco: gnNamespaces.gco,
+                 gml: gnNamespaces.gml
+               },
+               'iso19115-3': {
+                 gco: gnNamespaces.gco3,
+                 gml: gnNamespaces.gml32
+               }
+             }, datePattern = new RegExp('^\\d{4}$|' +
              '^\\d{4}-\\d{2}$|' +
              '^\\d{4}-\\d{2}-\\d{2}$|' +
              '^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}$');
