@@ -106,6 +106,9 @@
       <directiveAttributes data-include="external.theme.inspire-theme,external.place.regions"/>
       -->
     </for>
+
+    <for name="bfs:value" use="textarea"/>
+
   </fields>
 
 
@@ -154,6 +157,7 @@
     <name>bfs:startDate</name>
     <name>bfs:endDate</name>
     <name>bfs:MD_SingleValueFilter</name>
+    <name>bfs:MD_MultipleValueFilter</name>
     <name>bfs:MD_GeoExtentFilter</name>
     <name>bfs:MD_RodosFilter</name>
     <name>bfs:MD_PointInTimeFilter</name>
@@ -322,12 +326,12 @@
               <snippet>
                 <bfs:olProperties>
                   <bfs:Property>
-                    <bfs:name>
-                      <gco:CharacterString>isBaseLayer</gco:CharacterString>
-                    </bfs:name>
-                    <bfs:value>
-                      <gco:CharacterString>false</gco:CharacterString>
-                    </bfs:value>
+                    <bfs:propertyName>
+                      <gco:CharacterString></gco:CharacterString>
+                    </bfs:propertyName>
+                    <bfs:propertyValue>
+                      <gco:CharacterString></gco:CharacterString>
+                    </bfs:propertyValue>
                   </bfs:Property>
                 </bfs:olProperties>
               </snippet>
@@ -340,12 +344,12 @@
             <template>
               <snippet>
                   <bfs:Property>
-                    <bfs:name>
+                    <bfs:propertyName>
                       <gco:CharacterString></gco:CharacterString>
-                    </bfs:name>
-                    <bfs:value>
+                    </bfs:propertyName>
+                    <bfs:propertyValue>
                       <gco:CharacterString></gco:CharacterString>
-                    </bfs:value>
+                    </bfs:propertyValue>
                   </bfs:Property>
               </snippet>
             </template>

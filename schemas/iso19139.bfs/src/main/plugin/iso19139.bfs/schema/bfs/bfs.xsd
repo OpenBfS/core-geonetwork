@@ -230,8 +230,8 @@
 	<!-- ........................................................................ -->
 	<xs:complexType name="Property_Type">
 		<xs:sequence>
-			<xs:element name="name" type="gco:CharacterString_PropertyType"/>
-			<xs:element name="value" type="gco:CharacterString_PropertyType"/>
+			<xs:element name="propertyName" type="gco:CharacterString_PropertyType"/>
+			<xs:element name="propertyValue" type="gco:CharacterString_PropertyType"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -276,6 +276,7 @@
 				<xs:sequence>
 					<xs:element name="paramName" type="gco:CharacterString_PropertyType"/>
 					<xs:element name="value" type="gco:CharacterString_PropertyType"/>
+					<xs:element name="defaultValue" type="gco:CharacterString_PropertyType"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -293,21 +294,30 @@
 	
 	<!-- =========================================================================== -->
 	<!-- ========================= Multiple value filter ============================= -->
-	<!--<xs:complexType name="MultipleValueFilter_Type">
+	<xs:complexType name="MD_MultipleValueFilter_Type">
 		<xs:annotation>
-			<xs:documentation></xs:documentation>
+			<xs:documentation>.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="bfs:AbstractFilter_Type">
+			<xs:extension base="bfs:MD_Filter_Type">
 				<xs:sequence>
-					<xs:element name="Filter" type="bfs:SimpleValueFilter_Type" minOccurs="1" maxOccurs="unbounded"/>					
+					<xs:element name="paramName" type="gco:CharacterString_PropertyType"/>
+					<xs:element name="value" type="gco:CharacterString_PropertyType" maxOccurs="unbounded"/>
+					<xs:element name="defaultValue" type="gco:CharacterString_PropertyType"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
-	</xs:complexType>-->
+	</xs:complexType>
 	<!-- ........................................................................ -->
-	<!--<xs:element name="MultipleValueFilter" type="bfs:MultipleValueFilter_Type" substitutionGroup="bfs:AbstractFilter"/>-->
+	<xs:element name="MD_MultipleValueFilter" type="bfs:MD_MultipleValueFilter_Type" substitutionGroup="bfs:MD_Filter"/>
 	<!-- ........................................................................ -->
+	<xs:complexType name="MD_MultipleValueFilter_PropertyType">
+		<xs:sequence minOccurs="0">
+			<xs:element ref="bfs:MD_MultipleValueFilter"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="gco:ObjectReference"/>
+		<xs:attribute ref="gco:nilReason"/>
+	</xs:complexType>
 	
 	
 	<!-- =========================================================================== -->
@@ -346,6 +356,8 @@
 			<xs:extension base="bfs:MD_Filter_Type">
 				<xs:sequence>
 					<xs:element name="paramName" type="gco:CharacterString_PropertyType"/>
+					<xs:element name="interval" type="gco:Integer_PropertyType" />
+					<xs:element name="unit" type="gco:CharacterString_PropertyType"/>
 					<xs:element name="minDate" type="bfs:Date_Type" />
 					<xs:element name="maxDate" type="bfs:Date_Type" />
 				</xs:sequence>
@@ -438,8 +450,8 @@
 	<xs:complexType name="Download_Type">
 		<xs:sequence>
 			<xs:element ref="bfs:URL"/>
-			<xs:element name="PlaceholderStart" type="gco:Date_PropertyType"/>
-			<xs:element name="PlaceholderEnd" type="gco:Date_PropertyType"/>
+			<xs:element name="placeholderStart" type="gco:Date_PropertyType"/>
+			<xs:element name="placeholderEnd" type="gco:Date_PropertyType"/>
 		</xs:sequence>
 	</xs:complexType>
 	

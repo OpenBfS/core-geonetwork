@@ -59,7 +59,7 @@
     <description></description>
   </element>
 
-  <element name="bfs:name">
+  <element name="bfs:propertyName">
     <label>Name</label>
     <description></description>
     <helper>
@@ -71,8 +71,23 @@
     </helper>
   </element>
 
+  <element name="bfs:propertyValue">
+    <label>Value</label>
+    <description></description>
+  </element>
+
   <element name="bfs:value">
     <label>Value</label>
+    <description></description>
+    <helper>
+      <option value="{value:2,name:'BfS}'">BfS</option>
+      <option value="{value:1,name:'BfS &amp; KFÜ'}">BfS &amp; KFÜ</option>
+      <option value="{value:3,name:'KFÜ'}">KFÜ</option>
+    </helper>
+  </element>
+
+  <element name="bfs:defaultValue">
+    <label>Default Value</label>
     <description></description>
   </element>
 
@@ -123,6 +138,11 @@
 
   <element name="bfs:MD_SingleValueFilter">
     <label>Single Value Filter</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:MD_MultipleValueFilter">
+    <label>Multiple Value Filter</label>
     <description></description>
   </element>
 
@@ -200,4 +220,24 @@
       <option name="image/png">image/png</option>
     </helper>
   </element>
+
+  <element name="bfs:interval">
+    <label>Interval</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:unit">
+    <label>Unit</label>
+    <description></description>
+    <helper>
+      <option name="minutes">minutes</option>
+      <option name="hours">hours</option>
+    </helper>
+  </element>
+
+  <element name="bfs:name">
+    <label>Name</label>
+    <description></description>
+  </element>
+
 </labels>
