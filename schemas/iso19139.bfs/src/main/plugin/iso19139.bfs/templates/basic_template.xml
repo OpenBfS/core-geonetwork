@@ -90,10 +90,7 @@
 					</bfs:format>
 				</bfs:MD_WMSLayerType>
 			</bfs:layerType>
-			<bfs:wfs xmlns:gn="http://www.fao.org/geonetwork"
-							 xmlns:gmx="http://www.isotc211.org/2005/gmx"
-							 xmlns:srv="http://www.isotc211.org/2005/srv"
-							 xmlns:xlink="http://www.w3.org/1999/xlink">
+			<bfs:wfs>
 				<bfs:URL>
 					<bfs:host gco:nilReason="missing">
 						<gco:CharacterString/>
@@ -103,10 +100,7 @@
 					</bfs:path>
 				</bfs:URL>
 			</bfs:wfs>
-			<bfs:download xmlns:gn="http://www.fao.org/geonetwork"
-										xmlns:gmx="http://www.isotc211.org/2005/gmx"
-										xmlns:srv="http://www.isotc211.org/2005/srv"
-										xmlns:xlink="http://www.w3.org/1999/xlink">
+			<bfs:download>
 				<bfs:URL>
 					<bfs:host gco:nilReason="missing">
 						<gco:CharacterString/>

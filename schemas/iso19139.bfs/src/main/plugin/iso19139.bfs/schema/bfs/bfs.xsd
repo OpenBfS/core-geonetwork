@@ -266,35 +266,8 @@
 	</xs:complexType>
 	
 	<!-- =========================================================================== -->
-	<!-- ========================= Single value filter ============================= -->
-	<xs:complexType name="MD_SingleValueFilter_Type">
-		<xs:annotation>
-			<xs:documentation>.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="bfs:MD_Filter_Type">
-				<xs:sequence>
-					<xs:element name="paramName" type="gco:CharacterString_PropertyType"/>
-					<xs:element name="value" type="gco:CharacterString_PropertyType"/>
-					<xs:element name="defaultValue" type="gco:CharacterString_PropertyType"/>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<!-- ........................................................................ -->
-	<xs:element name="MD_SingleValueFilter" type="bfs:MD_SingleValueFilter_Type" substitutionGroup="bfs:MD_Filter"/>
-	<!-- ........................................................................ -->
-	<xs:complexType name="MD_SingleValueFilter_PropertyType">
-		<xs:sequence minOccurs="0">
-			<xs:element ref="bfs:MD_SingleValueFilter"/>
-		</xs:sequence>
-		<xs:attributeGroup ref="gco:ObjectReference"/>
-		<xs:attribute ref="gco:nilReason"/>
-	</xs:complexType>
-	
-	<!-- =========================================================================== -->
 	<!-- ========================= Multiple value filter ============================= -->
-	<xs:complexType name="MD_MultipleValueFilter_Type">
+	<xs:complexType name="MD_ValueFilter_Type">
 		<xs:annotation>
 			<xs:documentation>.</xs:documentation>
 		</xs:annotation>
@@ -302,18 +275,19 @@
 			<xs:extension base="bfs:MD_Filter_Type">
 				<xs:sequence>
 					<xs:element name="paramName" type="gco:CharacterString_PropertyType"/>
-					<xs:element name="value" type="gco:CharacterString_PropertyType" maxOccurs="unbounded"/>
+					<xs:element name="value" type="gco:CharacterString_PropertyType" minOccurs="1" maxOccurs="unbounded"/>
 					<xs:element name="defaultValue" type="gco:CharacterString_PropertyType"/>
+					<xs:element name="allowMultipleSelect" type="gco:Boolean_PropertyType"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 	<!-- ........................................................................ -->
-	<xs:element name="MD_MultipleValueFilter" type="bfs:MD_MultipleValueFilter_Type" substitutionGroup="bfs:MD_Filter"/>
+	<xs:element name="MD_ValueFilter" type="bfs:MD_ValueFilter_Type" substitutionGroup="bfs:MD_Filter"/>
 	<!-- ........................................................................ -->
-	<xs:complexType name="MD_MultipleValueFilter_PropertyType">
+	<xs:complexType name="MD_ValueFilter_PropertyType">
 		<xs:sequence minOccurs="0">
-			<xs:element ref="bfs:MD_MultipleValueFilter"/>
+			<xs:element ref="bfs:MD_ValueFilter"/>
 		</xs:sequence>
 		<xs:attributeGroup ref="gco:ObjectReference"/>
 		<xs:attribute ref="gco:nilReason"/>

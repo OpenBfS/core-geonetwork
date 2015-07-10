@@ -79,11 +79,6 @@
   <element name="bfs:value">
     <label>Value</label>
     <description></description>
-    <helper>
-      <option value="{value:2,name:'BfS}'">BfS</option>
-      <option value="{value:1,name:'BfS &amp; KFÜ'}">BfS &amp; KFÜ</option>
-      <option value="{value:3,name:'KFÜ'}">KFÜ</option>
-    </helper>
   </element>
 
   <element name="bfs:defaultValue">
@@ -136,13 +131,8 @@
     <description></description>
   </element>
 
-  <element name="bfs:MD_SingleValueFilter">
-    <label>Single Value Filter</label>
-    <description></description>
-  </element>
-
-  <element name="bfs:MD_MultipleValueFilter">
-    <label>Multiple Value Filter</label>
+  <element name="bfs:MD_ValueFilter">
+    <label>Value Filter</label>
     <description></description>
   </element>
 
@@ -237,6 +227,11 @@
 
   <element name="bfs:name">
     <label>Name</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:allowMultipleSelect">
+    <label>Allow Multiple Select</label>
     <description></description>
   </element>
 

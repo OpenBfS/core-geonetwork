@@ -156,8 +156,7 @@
     <name>bfs:TimeRangeFilter</name>
     <name>bfs:startDate</name>
     <name>bfs:endDate</name>
-    <name>bfs:MD_SingleValueFilter</name>
-    <name>bfs:MD_MultipleValueFilter</name>
+    <name>bfs:MD_ValueFilter</name>
     <name>bfs:MD_GeoExtentFilter</name>
     <name>bfs:MD_RodosFilter</name>
     <name>bfs:MD_PointInTimeFilter</name>
