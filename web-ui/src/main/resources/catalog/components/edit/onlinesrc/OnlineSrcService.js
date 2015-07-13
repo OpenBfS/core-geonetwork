@@ -314,6 +314,7 @@
          * - parent
          * - source dataset
          * - feature catalog
+         * - inspire
          *
          * @param {string} mode type of the metadata to link
          * @param {Object} record metadata to link.

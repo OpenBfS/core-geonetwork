@@ -77,6 +77,14 @@
             <span data-translate="">linkToSibling</span>
           </a>
         </li>
+        <li data-ng-show="isCategoryEnable('inspire')">
+          <a href=""
+             data-ng-click="onlinesrcService.onOpenPopup('inspire')">
+            <i class="fa fa-sign-out"></i>
+            <i class="icon-external-link"></i>&nbsp;
+            <span data-translate="">linkToInspire</span>
+          </a>
+        </li>
       </ul>
     </div>
   </div>
@@ -259,7 +267,25 @@
           {{resource.title}}</li>
           </li>
       </ul>
-      
+
+      <!--******* List of INSPIRE ******* -->
+      <h4 class="onlinesrc-title" data-ng-show="relations.inspire">
+        <a href=""
+           data-ng-click="onlinesrcService.onOpenPopup('inspire')">
+          <i class="fa fa-sitemap" data-ng-class="onlinesrcService.reload ? 'fa-spin' : ''"></i>
+          <i class="icon-external-link"></i>&nbsp;
+          <span data-translate="">InspireId</span>&nbsp;
+          <i class="fa fa-plus"></i>
+        </a>
+      </h4>
+      <ul class="list-group">
+        <li class="list-group-item"
+            data-ng-repeat="resource in relations.inspire | orderBy:'title'">
+          {{resource.title}} <a href="" class="onlinesrc-remove"
+                                data-ng-if="gnCurrentEdit.schemaConfig.related.readonly !== true"
+                                data-ng-click="onlinesrcService.removeMdLink('inspire', resource)"><i class="btn fa fa-times text-danger pull-right"></i></a>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

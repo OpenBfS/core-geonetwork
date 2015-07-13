@@ -343,6 +343,11 @@ public class GetRelated implements Service, RelatedMetadata {
             relatedRecords.addContent(search(uuid, "children", context, from, to, fast));
         }
 
+        // Search for children of this record
+        if (type.equals("") || type.contains("inspire")) {
+            relatedRecords.addContent(search(uuid, "inspire", context, from, to, fast));
+        }
+
         // Get parent record from this record
         if (schemaPlugin != null && (listOfTypes.size() == 0 || listOfTypes.contains("parent"))) {
             Set<String> listOfUUIDs = schemaPlugin.getAssociatedParentUUIDs(md);
@@ -449,6 +454,8 @@ public class GetRelated implements Service, RelatedMetadata {
             Element parameters = new Element(Jeeves.Elem.REQUEST);
             if ("children".equals(type))
                 parameters.addContent(new Element("parentUuid").setText(uuid));
+            else if ("inspire".equals(type))
+                parameters.addContent(new Element("inspireUuid").setText(uuid));
             else if ("services".equals(type))
                 parameters.addContent(new Element("operatesOn").setText(uuid));
             else if ("hasfeaturecat".equals(type))

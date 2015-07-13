@@ -40,7 +40,7 @@
             
         </Document>
     </xsl:template>
-    
+
 
     <!-- ========================================================================================= -->
 
@@ -747,6 +747,13 @@
              string="{util:getCodelistTranslation(name(*), string(*/@codeListValue), string($isoLangId))}"
              store="true" index="true"/>
     </xsl:for-each>
+
+
+
+      <!-- BfS fields -->
+      <xsl:if test="string(bfs:layerInformation/bfs:MD_Layer/bfs:inspireID/gco:CharacterString)"></xsl:if>
+      <Field name="inspireUuid" string="{string(bfs:layerInformation/bfs:MD_Layer/bfs:inspireID/gco:CharacterString)}" store="true" index="true" />
+      inspireUuid
   </xsl:template>
 
 

@@ -734,7 +734,8 @@
    * <ul>
    *  <li>parent</li>
    *  <li>feature catalog</li>
-   *  <li>source dataset</li>
+   *  <li>source dataset</li
+   *  <li>inspire dataset</li>
    * </ul>
    * The directive contains a search form allowing one local selection.
    *
@@ -792,6 +793,15 @@
                       };
                       scope.btn = {
                         label: $translate('linkToSource')
+                      };
+                    }
+                    else if (scope.mode == 'inspire') {
+                      searchParams = {
+                        _schema: 'iso19139.bfs'
+                      };
+                      scope.btn = {
+                        icon: 'fa-table',
+                        label: $translate('linkToInspire')
                       };
                     }
                     scope.$broadcast('resetSearch', searchParams);
