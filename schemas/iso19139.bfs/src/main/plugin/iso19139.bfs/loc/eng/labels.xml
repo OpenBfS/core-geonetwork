@@ -54,7 +54,7 @@
     <description></description>
   </element>
 
-  <element name="bfs:Property">
+  <element name="bfs:olProperty">
     <label>Property</label>
     <description></description>
   </element>

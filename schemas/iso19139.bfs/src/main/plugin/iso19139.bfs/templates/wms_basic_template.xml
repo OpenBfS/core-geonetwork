@@ -34,7 +34,7 @@
 			<gmd:citation>
 				<gmd:CI_Citation>
 					<gmd:title>
-						<gco:CharacterString>Generic Layer Template</gco:CharacterString>
+						<gco:CharacterString>WMS - Layer Template</gco:CharacterString>
 					</gmd:title>
 					<gmd:date>
 						<gmd:CI_Date>
@@ -61,8 +61,35 @@
 	<bfs:layerInformation>
 		<bfs:MD_Layer>
 			<bfs:inspireID>
-				<gco:CharacterString>acaf4fb2-7a69-4864-95ce-019be126eef2</gco:CharacterString>
+				<gco:CharacterString></gco:CharacterString>
 			</bfs:inspireID>
+			<bfs:layerType>
+				<bfs:MD_WMSLayerType>
+					<bfs:URL>
+						<bfs:host gco:nilReason="missing">
+							<gco:CharacterString/>
+						</bfs:host>
+						<bfs:path gco:nilReason="missing">
+							<gco:CharacterString/>
+						</bfs:path>
+					</bfs:URL>
+					<bfs:layer gco:nilReason="missing">
+						<gco:CharacterString/>
+					</bfs:layer>
+					<bfs:transparent>
+						<gco:Boolean/>
+					</bfs:transparent>
+					<bfs:version gco:nilReason="missing">
+						<gco:CharacterString/>
+					</bfs:version>
+					<bfs:styles gco:nilReason="missing">
+						<gco:CharacterString/>
+					</bfs:styles>
+					<bfs:format gco:nilReason="missing">
+						<gco:CharacterString/>
+					</bfs:format>
+				</bfs:MD_WMSLayerType>
+			</bfs:layerType>
 			<bfs:wfs>
 				<bfs:URL>
 					<bfs:host gco:nilReason="missing">

@@ -65,7 +65,7 @@
 				<xs:element ref="bfs:wfs" minOccurs="0" />
 				<xs:element ref="bfs:download" minOccurs="0"/>
 				<xs:element name="filter" type="bfs:MD_Filter_PropertyType" minOccurs="0" maxOccurs="unbounded" />
-				<xs:element ref="bfs:olProperties"/>
+				<xs:element name="olProperty" type="bfs:MD_Property_PropertyType" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:sequence>	
 			</xs:extension>
 		</xs:complexContent>
@@ -216,25 +216,31 @@
 	<!-- ============================= OL Properties ====================================== -->
 	<!-- ============================================================================== -->
 
-	<!-- ........................................................................ -->
-	<xs:element name="olProperties" type="bfs:olProperties_Type"/>
-	<!-- ........................................................................ -->
-	<xs:complexType name="olProperties_Type">
-		<xs:sequence>
-			<xs:element ref="bfs:Property" minOccurs="1" maxOccurs="unbounded"/>
-		</xs:sequence>
+	<!-- ================================== Classes ================================= -->
+	<xs:complexType name="MD_Property_Type">
+		<xs:annotation>
+			<xs:documentation></xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="gco:AbstractObject_Type">
+				<xs:sequence>
+					<xs:element name="propertyName" type="gco:CharacterString_PropertyType"/>
+					<xs:element name="propertyValue" type="gco:CharacterString_PropertyType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
-
 	<!-- ........................................................................ -->
-	<xs:element name="Property" type="bfs:Property_Type"/>
+	<xs:element name="MD_Property" type="bfs:MD_Property_Type"/>
 	<!-- ........................................................................ -->
-	<xs:complexType name="Property_Type">
-		<xs:sequence>
-			<xs:element name="propertyName" type="gco:CharacterString_PropertyType"/>
-			<xs:element name="propertyValue" type="gco:CharacterString_PropertyType"/>
+	<xs:complexType name="MD_Property_PropertyType">
+		<xs:sequence minOccurs="0">
+			<xs:element ref="bfs:MD_Property"/>
 		</xs:sequence>
+		<xs:attributeGroup ref="gco:ObjectReference"/>
+		<xs:attribute ref="gco:nilReason"/>
 	</xs:complexType>
-
+	
 	<!-- ============================================================================== -->
 	<!-- ============================= Filters ====================================== -->
 	<!-- ============================================================================== -->

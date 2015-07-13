@@ -152,7 +152,7 @@
     <name>bfs:download</name>
     <name>bfs:wms</name>
     <name>bfs:wfs</name>
-    <name>bfs:Property</name>
+    <name>bfs:olProperty</name>
     <name>bfs:TimeRangeFilter</name>
     <name>bfs:startDate</name>
     <name>bfs:endDate</name>
@@ -316,43 +316,8 @@
 
         <section name="bfs:olProperties">
           <field
-            xpath="/bfs:MD_Metadata/bfs:layerInformation/bfs:MD_Layer/bfs:olProperties" />
-          <action type="add"
-                  if="count(bfs:MD_Metadata/bfs:layerInformation/bfs:MD_Layer/bfs:olProperties) = 0"
-                  name="olProperties" or="olProperties"
-                  in="/bfs:MD_Metadata/bfs:layerInformation/bfs:MD_Layer">
-            <template>
-              <snippet>
-                <bfs:olProperties>
-                  <bfs:Property>
-                    <bfs:propertyName>
-                      <gco:CharacterString></gco:CharacterString>
-                    </bfs:propertyName>
-                    <bfs:propertyValue>
-                      <gco:CharacterString></gco:CharacterString>
-                    </bfs:propertyValue>
-                  </bfs:Property>
-                </bfs:olProperties>
-              </snippet>
-            </template>
-          </action>
-
-          <action type="add"
-                  name="Property" or="Property"
-                  in="/bfs:MD_Metadata/bfs:layerInformation/bfs:MD_Layer/bfs:olProperties">
-            <template>
-              <snippet>
-                  <bfs:Property>
-                    <bfs:propertyName>
-                      <gco:CharacterString></gco:CharacterString>
-                    </bfs:propertyName>
-                    <bfs:propertyValue>
-                      <gco:CharacterString></gco:CharacterString>
-                    </bfs:propertyValue>
-                  </bfs:Property>
-              </snippet>
-            </template>
-          </action>
+            xpath="/bfs:MD_Metadata/bfs:layerInformation/bfs:MD_Layer/bfs:olProperty"  or="olProperty" in="/bfs:MD_Metadata/bfs:layerInformation/bfs:MD_Layer"/>
+          />
         </section>
 
         <section name="bfs:MD_Metadata">
