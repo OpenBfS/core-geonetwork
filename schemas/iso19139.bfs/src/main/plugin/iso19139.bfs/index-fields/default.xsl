@@ -751,9 +751,9 @@
 
 
       <!-- BfS fields -->
-      <xsl:if test="string(bfs:layerInformation/bfs:MD_Layer/bfs:inspireID/gco:CharacterString)"></xsl:if>
+      <xsl:if test="string(bfs:layerInformation/bfs:MD_Layer/bfs:inspireID/gco:CharacterString)">
       <Field name="inspireUuid" string="{string(bfs:layerInformation/bfs:MD_Layer/bfs:inspireID/gco:CharacterString)}" store="true" index="true" />
-      inspireUuid
+      </xsl:if>
   </xsl:template>
 
 

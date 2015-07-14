@@ -112,12 +112,6 @@
 						<gco:CharacterString/>
 					</bfs:path>
 				</bfs:URL>
-				<bfs:placeholderStart>
-					<gco:DateTime/>
-				</bfs:placeholderStart>
-				<bfs:placeholderEnd>
-					<gco:DateTime/>
-				</bfs:placeholderEnd>
 			</bfs:download>
 		</bfs:MD_Layer>
 	</bfs:layerInformation>

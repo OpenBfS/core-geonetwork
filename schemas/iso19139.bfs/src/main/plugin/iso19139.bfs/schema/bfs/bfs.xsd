@@ -112,6 +112,32 @@
 	
 	<!-- =========================================================================== -->
 	<!-- =================================== WMS =================================== -->
+	<xs:complexType name="MD_VectorLayerType_Type">
+		<xs:annotation>
+			<xs:documentation>.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="bfs:MD_LayerType_Type">
+				<xs:sequence>
+					<xs:element ref="bfs:URL"/>		
+					<xs:element name="styles" type="gco:CharacterString_PropertyType"/>	
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- ........................................................................ -->
+	<xs:element name="MD_VectorLayerType" type="bfs:MD_VectorLayerType_Type" substitutionGroup="bfs:MD_LayerType"/>
+	<!-- ........................................................................ -->
+	<xs:complexType name="MD_VectorLayerType_PropertyType">
+		<xs:sequence minOccurs="1">
+			<xs:element ref="bfs:MD_VectorLayerType"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="gco:ObjectReference"/>
+		<xs:attribute ref="gco:nilReason"/>
+	</xs:complexType>
+	
+	<!-- =========================================================================== -->
+	<!-- =================================== WMS =================================== -->
 	<xs:complexType name="MD_WMSLayerType_Type">
 		<xs:annotation>
 			<xs:documentation>.</xs:documentation>
@@ -302,7 +328,7 @@
 	
 	<!-- =========================================================================== -->
 	<!-- =========================== GeoExtent filter ============================== -->
-	<xs:complexType name="MD_GeoExtentFilter_Type">
+	<!--<xs:complexType name="MD_GeoExtentFilter_Type">
 		<xs:annotation>
 			<xs:documentation>.</xs:documentation>
 		</xs:annotation>
@@ -314,17 +340,17 @@
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
-	</xs:complexType>
+	</xs:complexType>-->
 	<!-- ........................................................................ -->
-	<xs:element name="MD_GeoExtentFilter" type="bfs:MD_GeoExtentFilter_Type" substitutionGroup="bfs:MD_Filter"/>
+	<!--<xs:element name="MD_GeoExtentFilter" type="bfs:MD_GeoExtentFilter_Type" substitutionGroup="bfs:MD_Filter"/>-->
 	<!-- ........................................................................ -->
-	<xs:complexType name="MD_GeoExtentFilter_PropertyType">
+	<!--<xs:complexType name="MD_GeoExtentFilter_PropertyType">
 		<xs:sequence minOccurs="0">
 			<xs:element ref="bfs:MD_GeoExtentFilter"/>
 		</xs:sequence>
 		<xs:attributeGroup ref="gco:ObjectReference"/>
 		<xs:attribute ref="gco:nilReason"/>
-	</xs:complexType>
+	</xs:complexType>-->
 	
 	<!-- =========================================================================== -->
 	<!-- =========================== TimeRange filter ============================== -->
@@ -430,8 +456,6 @@
 	<xs:complexType name="Download_Type">
 		<xs:sequence>
 			<xs:element ref="bfs:URL"/>
-			<xs:element name="placeholderStart" type="gco:Date_PropertyType"/>
-			<xs:element name="placeholderEnd" type="gco:Date_PropertyType"/>
 		</xs:sequence>
 	</xs:complexType>
 	

@@ -164,6 +164,7 @@
     <name>bfs:layerType</name>
     <name>bfs:MD_WMSLayerType</name>
     <name>bfs:MD_WMTSLayerType</name>
+    <name>bfs:MD_VectorLayerType</name>
   </fieldsWithFieldset>
 
   <multilingualFields>

@@ -176,6 +176,11 @@
     <description></description>
   </element>
 
+  <element name="bfs:MD_VectorLayerType">
+    <label>Vector</label>
+    <description></description>
+  </element>
+
   <element name="bfs:layer">
     <label>Layer</label>
     <description></description>
