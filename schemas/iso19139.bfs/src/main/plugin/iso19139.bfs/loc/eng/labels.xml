@@ -210,9 +210,9 @@
     <label>Format</label>
     <description></description>
     <helper>
-      <option name="image/gif">image/gif</option>
-      <option name="image/jpg">image/jpg</option>
-      <option name="image/png">image/png</option>
+      <option value="image/gif">image/gif</option>
+      <option value="image/jpg">image/jpg</option>
+      <option value="image/png">image/png</option>
     </helper>
   </element>
 
@@ -225,8 +225,8 @@
     <label>Unit</label>
     <description></description>
     <helper>
-      <option name="minutes">minutes</option>
-      <option name="hours">hours</option>
+      <option value="minutes">minutes</option>
+      <option value="hours">hours</option>
     </helper>
   </element>
 
