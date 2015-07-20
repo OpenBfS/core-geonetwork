@@ -122,7 +122,7 @@
     "wmts":{
       "url":"<xsl:value-of select="concat(bfs:URL/bfs:host/gco:CharacterString,bfs:URL/bfs:path/gco:CharacterString )" />" ,
       "layers":"<xsl:value-of select="bfs:layer/gco:CharacterString" />",
-      "bfs:tilematrixset":"<xsl:value-of select="bfs:tilematrixset/gco:CharacterString" />",
+      "tilematrixset":"<xsl:value-of select="bfs:tilematrixset/gco:CharacterString" />",
       "transparent":<xsl:apply-templates select="bfs:transparent/gco:Boolean" />,
       "version":"<xsl:value-of select="bfs:version/gco:CharacterString" />",
       "styles":"<xsl:value-of select="bfs:styles/gco:CharacterString" />",
