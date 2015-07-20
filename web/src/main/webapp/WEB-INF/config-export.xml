@@ -81,6 +81,16 @@
 		</service>
 
 		<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+		<service name="xml_iso19139Tojson">
+			<class name=".services.metadata.Show" />
+			<output sheet="conversion/export/xml_json.xsl" contentType="text/json; charset=UTF-8"/>
+			<error id="operation-not-allowed" sheet="error-embedded.xsl" statusCode="403">
+				<xml name="error" file="xml/privileges-error.xml" />
+			</error>
+		</service>
+
+		<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 		
 		<service name="xml_iso19115toarccatalog8">
 			<class name=".services.metadata.Show" />
