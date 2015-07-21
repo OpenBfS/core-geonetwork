@@ -17,6 +17,9 @@
 
 	<!-- These are to map schemaLocation hints to local schemas to make sure that
        GeoNetwork edits and validates against a schema it knows about. -->
+	<system systemId="http://schemas.opengis.net/csw/2.0.2/profiles/apiso/1.0.0/apiso.xsd"
+					uri="schema.xsd"/>
+
 
 	<system systemId="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/gmd/gmd.xsd" 
 					uri="schema/gmd/gmd.xsd"/>
@@ -51,7 +54,12 @@
 
 	<!-- xlinks -->
 
-	<system systemId="http://www.w3.org/1999/xlink/xlinks.xsd" 
-	        uri="schema/xlink/xlinks.xsd"/>
+	<!--<system systemId="http://www.w3.org/1999/xlink/xlinks.xsd"
+	        uri="schema/xlink/xlinks.xsd"/>-->
 
+	<system systemId="http://www.w3.org/1999/xlink/xlink.xsd"
+        uri="schema/xlink/xlink.xsd"/>
+
+	<system systemId="http://www.w3.org/XML/1998/namespace"
+        uri="schema/xml/xml.xsd"/>
 </catalog>

@@ -218,9 +218,9 @@
 			<xsl:copy-of select="gmd:protocol"/>
 			<xsl:copy-of select="gmd:applicationProfile"/>
 			<gmd:name>
-				<gmx:MimeFileType type="{$mimeType}">
+				<gco:CharacterString>
 					<xsl:value-of select="$fname"/>
-				</gmx:MimeFileType>
+				</gco:CharacterString>
 			</gmd:name>
 			<xsl:copy-of select="gmd:description"/>
 			<xsl:copy-of select="gmd:function"/>
@@ -244,7 +244,7 @@
 			<xsl:copy-of select="gmd:protocol"/>
 			<xsl:copy-of select="gmd:applicationProfile"/>
 			<gmd:name>
-				<gmx:MimeFileType type="{$mimeType}"/>
+				<gco:CharacterString />
 			</gmd:name>
 			<xsl:copy-of select="gmd:description"/>
 			<xsl:copy-of select="gmd:function"/>
