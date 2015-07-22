@@ -207,4 +207,9 @@
 	<field name="gmd:RS_Identifier">
 		<suggest name="gmd:codeSpace"/>
 	</field>
+
+
+	<field name="bfs:TimeInstant">
+		<suggest name="gco:DateTime"/>
+	</field>
 </fields>

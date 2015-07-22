@@ -1163,6 +1163,81 @@ public class EditLib {
             }
             Element child = isoPlugin.createBasicTypeCharacterString();
             element.addContent(child);
+        } else if (isISOPlugin &&
+                !type.getElementList().contains(
+                        isoPlugin.getBasicTypeCharacterStringName()) &&
+                hasSuggestion) {
+
+            if(Log.isDebugEnabled(Geonet.EDITORFILLELEMENT)) {
+                Log.debug(Geonet.EDITORFILLELEMENT, "####   - Requested expansion of an OR element having a suggestion: " + element.getName());
+            }
+
+            for(int i=0; i<type.getElementCount(); i++) {
+                String childName = type.getElementAt(i);
+                boolean childIsSuggested = sugg.isSuggested(elemName, childName);
+
+                if (childIsSuggested) {
+                    MetadataType elemType = schema.getTypeInfo(schema.getElementType(childName, elemName));
+                    List<String> childSuggestion = sugg.getSuggestedElements(childName);
+                    boolean childHasOneSuggestion = sugg.hasSuggestion(childName, elemType.getElementList()) && (CollectionUtils.intersection(elemType.getElementList(), childSuggestion).size() == 1);
+                    boolean childHasOnlyCharacterStringSuggestion = childSuggestion.size() == 1 && childSuggestion.contains("gco:CharacterString");
+
+                    if (Log.isDebugEnabled(Geonet.EDITORFILLELEMENT)) {
+                        Log.debug(Geonet.EDITORFILLELEMENT, "####     - is or type = " + elemType.isOrType());
+                        Log.debug(Geonet.EDITORFILLELEMENT, "####     - has suggestion = " + childHasOneSuggestion);
+                        Log.debug(Geonet.EDITORFILLELEMENT, "####     - elem type list = " + elemType.getElementList());
+                        Log.debug(Geonet.EDITORFILLELEMENT, "####     - suggested types list = " + sugg.getSuggestedElements(childName));
+                    }
+
+                    //--- There can be 'or' elements with other 'or' elements inside them.
+                    //--- In this case we cannot expand the inner 'or' elements so the
+                    //--- only way to solve the problem is to avoid the creation of them
+                    if (
+                            schema.isSimpleElement(elemName, childName) ||  // eg. gco:Decimal
+                                    !elemType.isOrType() ||                         // eg. gmd:EX_Extent
+                                    (elemType.isOrType() && (                       // eg. depends on schema-suggestions.xml
+                                            childHasOneSuggestion ||                    //   expand the only one suggestion - TODO - this needs improvements
+                                                    (childSuggestion.size() == 0 && elemType.getElementList().contains("gco:CharacterString")))
+                                            //   expand element which have no suggestion
+                                            // and have a gco:CharacterString substitute.
+                                            // gco:CharacterString is the default.
+                                    )
+                            ) {
+                        // Create the element
+                        String name = getUnqualifiedName(childName);
+                        String ns = getNamespace(childName, element, schema);
+                        String prefix = getPrefix(childName);
+
+                        Element child = new Element(name, prefix, ns);
+
+                        // Add it to the element
+                        element.addContent(child);
+
+                        if (childHasOnlyCharacterStringSuggestion &&
+                                isISOPlugin) {
+                            child.addContent(isoPlugin.createBasicTypeCharacterString()
+                            );
+                        }
+
+                        // Continue ....
+                        fillElement(schema, sugg, element, child);
+                    } else {
+                        // Logging some cases to avoid
+                        if (Log.isDebugEnabled(Geonet.EDITORFILLELEMENT)) {
+                            if (elemType.isOrType() && isISOPlugin) {
+                                if (elemType.getElementList().contains(
+                                        isoPlugin.getBasicTypeCharacterStringName())
+                                        && !childHasOneSuggestion) {
+                                    Log.debug(Geonet.EDITORFILLELEMENT, "####   - (INNER) Requested expansion of an OR element having gco:CharacterString substitute and no suggestion: " + element.getName());
+                                } else {
+                                    Log.debug(Geonet.EDITORFILLELEMENT, "####   - WARNING (INNER): requested expansion of an OR element : " + childName);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
         } else {
             // TODO: this could be supported if only one suggestion defined for an or element ?
             // It will require to get the proper namespace for the element
