@@ -73,6 +73,32 @@
     </helper>
   </element>
 
+  <element name="bfs:propertyName" context="/bfs:MD_Metadata/bfs:layerInformation/bfs:MD_Layer/bfs:timeSeriesChartProperty/bfs:MD_Property/bfs:propertyName">
+    <label>Name</label>
+    <description></description>
+    <!-- TODO: Add helper list when available for bfs:timeSeriesChartProperty  -->
+    <!--<helper>
+      <option value="buffer">buffer</option>
+      <option value="displayInLayerSwitcher">displayInLayerSwitcher</option>
+      <option value="isBaseLayer">isBaseLayer</option>
+      <option value="ratio">ratio</option>
+      <option value="singleTile">singleTile</option>
+    </helper>-->
+  </element>
+
+  <element name="bfs:propertyName" context="/bfs:MD_Metadata/bfs:layerInformation/bfs:MD_Layer/bfs:barChartProperty/bfs:MD_Property/bfs:propertyName">
+    <label>Name</label>
+    <description></description>
+    <!-- TODO: Add helper list when available for bfs:barChartProperty -->
+    <!--<helper>
+      <option value="buffer">buffer</option>
+      <option value="displayInLayerSwitcher">displayInLayerSwitcher</option>
+      <option value="isBaseLayer">isBaseLayer</option>
+      <option value="ratio">ratio</option>
+      <option value="singleTile">singleTile</option>
+    </helper>-->
+  </element>
+
   <element name="bfs:propertyName">
     <label>Name</label>
     <description></description>
