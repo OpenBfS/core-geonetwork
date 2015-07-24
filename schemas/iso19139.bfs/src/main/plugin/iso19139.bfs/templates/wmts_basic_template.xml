@@ -60,7 +60,7 @@
 	</gmd:identificationInfo>
 	<bfs:layerInformation>
 		<bfs:MD_Layer>
-			<bfs:inspireID>
+			<bfs:inspireID gco:nilReason="missing">
 				<gco:CharacterString></gco:CharacterString>
 			</bfs:inspireID>
 			<bfs:layerType>

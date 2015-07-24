@@ -59,7 +59,9 @@
     <description></description>
   </element>
 
-  <element name="bfs:propertyName">
+
+  <!-- OpenLayers property, with suggestions. Define the full xpath contexts to distinguish from time series and bar chart properties -->
+  <element name="bfs:propertyName" context="/bfs:MD_Metadata/bfs:layerInformation/bfs:MD_Layer/bfs:olProperty/bfs:MD_Property/bfs:propertyName">
     <label>Name</label>
     <description></description>
     <helper>
@@ -69,6 +71,11 @@
       <option value="ratio">ratio</option>
       <option value="singleTile">singleTile</option>
     </helper>
+  </element>
+
+  <element name="bfs:propertyName">
+    <label>Name</label>
+    <description></description>
   </element>
 
   <element name="bfs:propertyValue">
@@ -237,6 +244,27 @@
 
   <element name="bfs:allowMultipleSelect">
     <label>Allow Multiple Select</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:timeSeriesChartProperties">
+    <label>Timeseries Chart Properties</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:timeSeriesChartProperty">
+    <label>Property</label>
+    <description></description>
+  </element>
+
+
+  <element name="bfs:barChartProperties">
+    <label>Bar Chart Properties</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:barChartProperty">
+    <label>Property</label>
     <description></description>
   </element>
 

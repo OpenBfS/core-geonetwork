@@ -66,6 +66,8 @@
 				<xs:element ref="bfs:download" minOccurs="0"/>
 				<xs:element name="filter" type="bfs:MD_Filter_PropertyType" minOccurs="0" maxOccurs="unbounded" />
 				<xs:element name="olProperty" type="bfs:MD_Property_PropertyType" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="timeSeriesChartProperty" type="bfs:MD_Property_PropertyType" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="barChartProperty" type="bfs:MD_Property_PropertyType" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:sequence>	
 			</xs:extension>
 		</xs:complexContent>

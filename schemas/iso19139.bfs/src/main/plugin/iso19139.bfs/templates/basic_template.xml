@@ -60,8 +60,8 @@
 	</gmd:identificationInfo>
 	<bfs:layerInformation>
 		<bfs:MD_Layer>
-			<bfs:inspireID>
-				<gco:CharacterString>acaf4fb2-7a69-4864-95ce-019be126eef2</gco:CharacterString>
+			<bfs:inspireID gco:nilReason="missing">
+				<gco:CharacterString></gco:CharacterString>
 			</bfs:inspireID>
 			<bfs:wfs>
 				<bfs:URL>

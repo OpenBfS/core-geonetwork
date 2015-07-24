@@ -24,7 +24,16 @@
     <xsl:for-each select="bfs:layerInformation/bfs:MD_Layer/bfs:olProperty/bfs:MD_Property">
       "<xsl:value-of select="bfs:propertyName/gco:CharacterString" />":"<xsl:value-of select="bfs:propertyValue/gco:CharacterString" />"<xsl:if test="position() != last()">,</xsl:if>
     </xsl:for-each>
-    <xsl:apply-templates select="bfs:layerInformation/bfs:MD_Layer/bfs:olProperty" />
+    },
+    "timeSeriesChartProperties":{
+    <xsl:for-each select="bfs:layerInformation/bfs:MD_Layer/bfs:timeSeriesChartProperty/bfs:MD_Property">
+      "<xsl:value-of select="bfs:propertyName/gco:CharacterString" />":"<xsl:value-of select="bfs:propertyValue/gco:CharacterString" />"<xsl:if test="position() != last()">,</xsl:if>
+    </xsl:for-each>
+    },
+    "barChartProperties":{
+      <xsl:for-each select="bfs:layerInformation/bfs:MD_Layer/bfs:barChartProperty/bfs:MD_Property">
+        "<xsl:value-of select="bfs:propertyName/gco:CharacterString" />":"<xsl:value-of select="bfs:propertyValue/gco:CharacterString" />"<xsl:if test="position() != last()">,</xsl:if>
+      </xsl:for-each>
     }
   }
 }

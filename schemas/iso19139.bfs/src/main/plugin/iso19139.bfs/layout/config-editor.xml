@@ -153,6 +153,8 @@
     <name>bfs:wms</name>
     <name>bfs:wfs</name>
     <name>bfs:olProperty</name>
+    <name>bfs:timeSeriesChartProperty</name>
+    <name>bfs:barChartProperty</name>
     <name>bfs:TimeRangeFilter</name>
     <name>bfs:startDate</name>
     <name>bfs:endDate</name>
@@ -320,6 +322,19 @@
             xpath="/bfs:MD_Metadata/bfs:layerInformation/bfs:MD_Layer/bfs:olProperty"  or="olProperty" in="/bfs:MD_Metadata/bfs:layerInformation/bfs:MD_Layer"/>
           />
         </section>
+
+        <section name="bfs:timeSeriesChartProperties">
+          <field
+            xpath="/bfs:MD_Metadata/bfs:layerInformation/bfs:MD_Layer/bfs:timeSeriesChartProperty"  or="timeSeriesChartProperty" in="/bfs:MD_Metadata/bfs:layerInformation/bfs:MD_Layer"/>
+          />
+        </section>
+
+        <section name="bfs:barChartProperties">
+          <field
+            xpath="/bfs:MD_Metadata/bfs:layerInformation/bfs:MD_Layer/bfs:barChartProperty"  or="barChartProperty" in="/bfs:MD_Metadata/bfs:layerInformation/bfs:MD_Layer"/>
+          />
+        </section>
+
 
         <section name="bfs:MD_Metadata">
           <field xpath="/bfs:MD_Metadata/gmd:fileIdentifier"/>
