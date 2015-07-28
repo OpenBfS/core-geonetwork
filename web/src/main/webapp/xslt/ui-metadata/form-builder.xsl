@@ -371,6 +371,8 @@
 
     <xsl:variable name="firstFieldKey"
                   select="$template/values/key[position() = 1]/@label"/>
+                  
+                  <xsl:message>Firective: <xsl:value-of select="$addDirective"/></xsl:message>
 
     <div class="form-group gn-field gn-{$firstFieldKey} {if ($isFirst) then '' else 'gn-extra-field'} {if ($isAddAction) then 'gn-add-field' else ''}"
          id="gn-el-{if ($refToDelete) then $refToDelete/@ref else generate-id()}"
@@ -436,6 +438,8 @@
           </xsl:if>
 
 
+        <xsl:message><xsl:value-of select="@use"/></xsl:message>
+
           <xsl:if test="not($addDirective)">
             <div>
               <xsl:if test="$hasAddAction">
@@ -491,6 +495,16 @@
                           <xsl:attribute name="disabled"/>
                         </xsl:if>
                        </input>&#160;</span>
+                  </xsl:when>
+                  <xsl:when test="@use = 'json-validator'">
+                    <textarea class="form-control"
+                              data-gn-json=""
+                              data-gn-field-tooltip="{$schema}|{@tooltip}"
+                              id="{$id}_{@label}">
+                      <xsl:if test="$readonly = 'true'">
+                        <xsl:attribute name="disabled"/>
+                      </xsl:if>
+                   </textarea>
                   </xsl:when>
                   <!-- A directive -->
                   <xsl:when test="starts-with(@use, 'gn-')">
@@ -877,6 +891,33 @@
             <xsl:attribute name="data-gn-field-tooltip" select="$tooltip"/>
           </xsl:if>
         </input>
+      </xsl:when>
+      <xsl:when test="$type = 'json-validator'">
+        <!-- //TODO
+        -->
+        <xsl:variable name="elementId" select="concat('gn-field-', $editInfo/@ref)"/>
+        <xsl:variable name="valueToEditSafe">
+            <xsl:choose>
+                <xsl:when test="normalize-space($valueToEdit) = ''">{}</xsl:when>
+                <xsl:otherwise><xsl:value-of select="$valueToEdit"/></xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        
+        
+         <textarea 
+                  id="{$elementId}" 
+                  name="_{$name}"
+                  
+                  class="form-control"
+                  data-gn-autogrow=""
+                  data-gn-json-validator=""
+                  
+                  data-ng-model="_{$name}">
+          <xsl:if test="$tooltip">
+            <xsl:attribute name="data-gn-field-tooltip" select="$tooltip"/>
+          </xsl:if>
+            {$valueToEditSafe}
+        </textarea>
       </xsl:when>
       <xsl:otherwise>
         

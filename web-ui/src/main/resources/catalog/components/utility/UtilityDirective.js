@@ -863,6 +863,35 @@
       }
     };
   });
+  module.directive('gnJsonValidator', function() {
+    return {
+      restrict: 'A',
+      require: 'ngModel',
+      link: function(scope, element, attr, ngModel) {
+        function into(input) {
+          return ioFn(input, 'parse');
+        }
+        function out(input) {
+          return ioFn(input, 'parse');
+        }
+        function ioFn(input, method) {
+          var json = input;
+          try {
+            if(method != null) {
+              json = JSON[method](input);
+            }
+            ngModel.$setValidity('json', true);
+          } catch (e) {
+            ngModel.$setValidity('json', false);
+          }
+          return json;
+        }
+        ngModel.$parsers.push(into);
+        ngModel.$formatters.push(out);
+
+      }
+    };
+  });
   module.directive('gnImgModal', function() {
     return {
       restrict: 'A',
