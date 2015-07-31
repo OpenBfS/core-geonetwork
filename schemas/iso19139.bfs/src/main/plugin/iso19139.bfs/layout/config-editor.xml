@@ -268,7 +268,6 @@
           <field
             xpath="/bfs:MD_Metadata/bfs:layerInformation/bfs:MD_Layer/bfs:download" />
           <action type="add"
-                  if="count(/bfs:MD_Metadata/bfs:layerInformation/bfs:MD_Layer/bfs:download) = 0"
                   name="download" or="download"
                   in="/bfs:MD_Metadata/bfs:layerInformation/bfs:MD_Layer">
             <template>
@@ -292,7 +291,6 @@
           <field
             xpath="/bfs:MD_Metadata/bfs:layerInformation/bfs:MD_Layer/bfs:wfs"/>
           <action type="add"
-                  if="count(bfs:MD_Metadata/bfs:layerInformation/bfs:MD_Layer/bfs:wfs) = 0"
                   name="wfs" or="wfs"
                   in="/bfs:MD_Metadata/bfs:layerInformation/bfs:MD_Layer">
             <template>
