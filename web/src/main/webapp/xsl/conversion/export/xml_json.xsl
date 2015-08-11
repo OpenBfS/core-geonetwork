@@ -87,7 +87,7 @@
     "type":"value",
     "param":"<xsl:value-of select="bfs:paramName/gco:CharacterString" />",
     <xsl:for-each select="bfs:value">
-    "value":<xsl:value-of select="gco:CharacterString" />,
+    "value":"<xsl:apply-templates select="gco:CharacterString" />",
     </xsl:for-each>
     "defaultValue":"<xsl:value-of select="bfs:defaultValue/gco:CharacterString" />",
     "allowMultipleSelect":"<xsl:apply-templates select="bfs:allowMultipleSelect/gco:Boolean" />"
@@ -101,17 +101,6 @@
       "url":"<xsl:value-of select="concat(bfs:URL/bfs:host/gco:CharacterString,bfs:URL/bfs:path/gco:CharacterString )" />" ,
       "layers":"<xsl:value-of select="bfs:layer/gco:CharacterString" />",
       "transparent":<xsl:value-of select="bfs:transparent/gco:Boolean" />,
-      "version":"<xsl:value-of select="bfs:version/gco:CharacterString" />",
-      "styles":"<xsl:value-of select="bfs:styles/gco:CharacterString" />",
-      "format":"<xsl:value-of select="bfs:format/gco:CharacterString" />"
-    },
-  </xsl:template>
-
-  <xsl:template match="bfs:MD_WMSLayerType">
-    "wms":{
-      "url":"<xsl:value-of select="concat(bfs:URL/bfs:host/gco:CharacterString,bfs:URL/bfs:path/gco:CharacterString )" />" ,
-      "layers":"<xsl:value-of select="bfs:layer/gco:CharacterString" />",
-      "transparent":<xsl:apply-templates select="bfs:transparent/gco:Boolean" />,
       "version":"<xsl:value-of select="bfs:version/gco:CharacterString" />",
       "styles":"<xsl:value-of select="bfs:styles/gco:CharacterString" />",
       "format":"<xsl:value-of select="bfs:format/gco:CharacterString" />"
@@ -144,6 +133,14 @@
       <xsl:when test=". = 'true'">true</xsl:when>
       <xsl:otherwise>false</xsl:otherwise>
     </xsl:choose>
+  </xsl:template>
+  
+  <xsl:template match="gco:CharacterString" name="escapeJSON">
+    <xsl:variable name="string1"><xsl:for-each select="tokenize(., '\n')"><xsl:sequence select="."></xsl:sequence><xsl:if test="position() != last()">\n</xsl:if></xsl:for-each></xsl:variable>
+    <xsl:variable name="string2"><xsl:for-each select="tokenize($string1, '\r')"><xsl:sequence select="."></xsl:sequence><xsl:if test="position() != last()">\r</xsl:if></xsl:for-each></xsl:variable>
+    <xsl:variable name="string3"><xsl:for-each select="tokenize($string2, '\t')"><xsl:sequence select="."></xsl:sequence><xsl:if test="position() != last()">\t</xsl:if></xsl:for-each></xsl:variable>
+    <xsl:variable name="string4"><xsl:for-each select="tokenize($string3, '&quot;')"><xsl:sequence select="."></xsl:sequence><xsl:if test="position() != last()">\&quot;</xsl:if></xsl:for-each></xsl:variable>
+    <xsl:value-of select="$string4"/>
   </xsl:template>
 
   <xsl:template match="@*|node()">

@@ -868,12 +868,13 @@
     return {
       restrict: 'A',
       require: 'ngModel',
+      scope: true,
       link: function(scope, element, attr, ngModel) {
         function into(input) {
           return ioFn(input, 'parse');
         }
         function out(input) {
-          return ioFn(input, 'parse');
+          return ioFn(input, null);
         }
         function ioFn(input, method) {
           var json = input;
