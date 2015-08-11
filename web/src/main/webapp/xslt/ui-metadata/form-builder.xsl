@@ -905,22 +905,25 @@
             </xsl:choose>
         </xsl:variable>
         
-        
-         <textarea 
+        <textarea 
                   id="{$elementId}" 
                   name="_{$name}"
+                  
+                  placeholder="Enter your json without double quotes"
                   
                   class="form-control"
                   data-gn-autogrow=""
                   data-gn-json-validator=""
                   
-                  data-ng-model="_{$name}">
+                  data-gn-value="{$valueToEditSafe}">
           <xsl:if test="$tooltip">
             <xsl:attribute name="data-gn-field-tooltip" select="$tooltip"/>
           </xsl:if>
-            {$valueToEditSafe}
+          <xsl:attribute name="data-ng-model">gnValue</xsl:attribute>
+          
         </textarea>
-      </xsl:when>
+        
+       </xsl:when>
       <xsl:otherwise>
         
         <xsl:variable name="isDirective" select="starts-with($type, 'data-')"/>
