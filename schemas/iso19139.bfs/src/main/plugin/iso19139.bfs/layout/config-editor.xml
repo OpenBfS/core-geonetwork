@@ -342,6 +342,7 @@
 
       <!-- Elements that should not use the "flat" mode -->
       <flatModeExceptions>
+        <for name="bfs:value"/>
       </flatModeExceptions>
 
       <!--<tab id="default" default="true" mode="fla"true" mode="flat">
