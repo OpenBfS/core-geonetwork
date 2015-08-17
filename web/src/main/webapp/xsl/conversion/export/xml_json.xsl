@@ -13,26 +13,30 @@
   <xsl:template match="bfs:MD_Metadata">
 {
   "id": "<xsl:value-of select="gmd:fileIdentifier/gco:CharacterString" />",
-  "dspTxt": "<xsl:value-of select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:title/gco:CharacterString" />",
+  "dspTxt": "<xsl:apply-templates select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:title/gco:CharacterString" />",
   "inspireId": "<xsl:value-of select="bfs:layerInformation/bfs:MD_Layer/bfs:inspireID/gco:CharacterString" />",
-    <xsl:apply-templates select="bfs:layerInformation/bfs:MD_Layer/bfs:filter" />
+  "filters": [
+    <xsl:for-each select="bfs:layerInformation/bfs:MD_Layer/bfs:filter">
+      <xsl:apply-templates select="." /><xsl:if test="position() != last()">,</xsl:if>
+    </xsl:for-each>
+    ],
   "layerConfig":{
     <xsl:apply-templates select="bfs:layerInformation/bfs:MD_Layer/bfs:layerType" />
     <xsl:apply-templates select="bfs:layerInformation/bfs:MD_Layer/bfs:wfs" />
     <xsl:apply-templates select="bfs:layerInformation/bfs:MD_Layer/bfs:download" />
     "olProperties":{
     <xsl:for-each select="bfs:layerInformation/bfs:MD_Layer/bfs:olProperty/bfs:MD_Property">
-      "<xsl:value-of select="bfs:propertyName/gco:CharacterString" />":"<xsl:value-of select="bfs:propertyValue/gco:CharacterString" />"<xsl:if test="position() != last()">,</xsl:if>
+      "<xsl:apply-templates select="bfs:propertyName/gco:CharacterString" />":"<xsl:apply-templates select="bfs:propertyValue/gco:CharacterString" />"<xsl:if test="position() != last()">,</xsl:if>
     </xsl:for-each>
     },
     "timeSeriesChartProperties":{
     <xsl:for-each select="bfs:layerInformation/bfs:MD_Layer/bfs:timeSeriesChartProperty/bfs:MD_Property">
-      "<xsl:value-of select="bfs:propertyName/gco:CharacterString" />":"<xsl:value-of select="bfs:propertyValue/gco:CharacterString" />"<xsl:if test="position() != last()">,</xsl:if>
+      "<xsl:apply-templates select="bfs:propertyName/gco:CharacterString" />":"<xsl:apply-templates select="bfs:propertyValue/gco:CharacterString" />"<xsl:if test="position() != last()">,</xsl:if>
     </xsl:for-each>
     },
     "barChartProperties":{
       <xsl:for-each select="bfs:layerInformation/bfs:MD_Layer/bfs:barChartProperty/bfs:MD_Property">
-        "<xsl:value-of select="bfs:propertyName/gco:CharacterString" />":"<xsl:value-of select="bfs:propertyValue/gco:CharacterString" />"<xsl:if test="position() != last()">,</xsl:if>
+        "<xsl:apply-templates select="bfs:propertyName/gco:CharacterString" />":"<xsl:apply-templates select="bfs:propertyValue/gco:CharacterString" />"<xsl:if test="position() != last()">,</xsl:if>
       </xsl:for-each>
     }
   }
@@ -53,45 +57,45 @@
 
   <!-- Filters -->
   <xsl:template match="bfs:MD_PointInTimeFilter">
-  "filter":{
+  {
     "type":"pointintime",
-    "param":"<xsl:value-of select="bfs:paramName/gco:CharacterString" />",
-    "timeformat":"<xsl:value-of select="bfs:date/bfs:TimeFormat/gco:CharacterString" />",
-    "timeinstant":"<xsl:value-of select="bfs:date/bfs:TimeInstant/gco:DateTime" />"
+    "param":"<xsl:apply-templates select="bfs:paramName/gco:CharacterString" />",
+    "timeformat":"<xsl:apply-templates select="bfs:date/bfs:TimeFormat/gco:CharacterString" />",
+    "timeinstant":"<xsl:apply-templates select="bfs:date/bfs:TimeInstant/gco:DateTime" />"
   },
   </xsl:template>
 
   <xsl:template match="bfs:MD_RodosFilter">
-  "filter":{
+  {
     "type":"rodos",
-    "param":"<xsl:value-of select="bfs:paramName/gco:CharacterString" />",
+    "param":"<xsl:apply-templates select="bfs:paramName/gco:CharacterString" />",
     "url":"<xsl:value-of select="concat(bfs:URL/bfs:host/gco:CharacterString,bfs:URL/bfs:path/gco:CharacterString )" />"
-  },
+  }
   </xsl:template>
 
   <xsl:template match="bfs:MD_TimeRangeFilter">
-  "filter":{
+  {
     "type":"timerange",
-    "param":"<xsl:value-of select="bfs:paramName/gco:CharacterString" />",
+    "param":"<xsl:apply-templates select="bfs:paramName/gco:CharacterString" />",
     "interval":"<xsl:value-of select="bfs:interval/gco:Integer" />",
-    "unit":"<xsl:value-of select="bfs:unit/gco:CharacterString" />",
-    "mindatetimeformat":"<xsl:value-of select="bfs:minDate/bfs:TimeFormat/gco:CharacterString" />",
-    "mindatetimeinstant":"<xsl:value-of select="bfs:minDate/bfs:TimeInstant/gco:DateTime" />",
-    "maxdatetimeformat":"<xsl:value-of select="bfs:maxDate/bfs:TimeFormat/gco:CharacterString" />",
-    "maxdatetimeinstant":"<xsl:value-of select="bfs:maxDate/bfs:TimeInstant/gco:DateTime" />"
-  },
+    "unit":"<xsl:apply-templates select="bfs:unit/gco:CharacterString" />",
+    "mindatetimeformat":"<xsl:apply-templates select="bfs:minDate/bfs:TimeFormat/gco:CharacterString" />",
+    "mindatetimeinstant":"<xsl:apply-templates select="bfs:minDate/bfs:TimeInstant/gco:DateTime" />",
+    "maxdatetimeformat":"<xsl:apply-templates select="bfs:maxDate/bfs:TimeFormat/gco:CharacterString" />",
+    "maxdatetimeinstant":"<xsl:apply-templates select="bfs:maxDate/bfs:TimeInstant/gco:DateTime" />"
+  }
   </xsl:template>
 
   <xsl:template match="bfs:MD_ValueFilter">
-  "filter":{
+  {
     "type":"value",
-    "param":"<xsl:value-of select="bfs:paramName/gco:CharacterString" />",
+    "param":"<xsl:apply-templates select="bfs:paramName/gco:CharacterString" />",
     <xsl:for-each select="bfs:value">
-    "value":"<xsl:apply-templates select="gco:CharacterString" />",
+    "value":<xsl:apply-templates select="gco:CharacterString" />,
     </xsl:for-each>
     "defaultValue":"<xsl:value-of select="bfs:defaultValue/gco:CharacterString" />",
-    "allowMultipleSelect":"<xsl:apply-templates select="bfs:allowMultipleSelect/gco:Boolean" />"
-  },
+    "allowMultipleSelect":<xsl:apply-templates select="bfs:allowMultipleSelect/gco:Boolean" />
+  }
   </xsl:template>
 
 
@@ -99,11 +103,11 @@
   <xsl:template match="bfs:MD_WMSLayerType">
     "wms":{
       "url":"<xsl:value-of select="concat(bfs:URL/bfs:host/gco:CharacterString,bfs:URL/bfs:path/gco:CharacterString )" />" ,
-      "layers":"<xsl:value-of select="bfs:layer/gco:CharacterString" />",
-      "transparent":<xsl:value-of select="bfs:transparent/gco:Boolean" />,
-      "version":"<xsl:value-of select="bfs:version/gco:CharacterString" />",
-      "styles":"<xsl:value-of select="bfs:styles/gco:CharacterString" />",
-      "format":"<xsl:value-of select="bfs:format/gco:CharacterString" />"
+      "layers":"<xsl:apply-templates select="bfs:layer/gco:CharacterString" />",
+      "transparent":<xsl:apply-templates select="bfs:transparent/gco:Boolean" />,
+      "version":"<xsl:apply-templates select="bfs:version/gco:CharacterString" />",
+      "styles":"<xsl:apply-templates select="bfs:styles/gco:CharacterString" />",
+      "format":"<xsl:apply-templates select="bfs:format/gco:CharacterString" />"
     },
   </xsl:template>
 
@@ -111,20 +115,20 @@
   <xsl:template match="bfs:MD_VectorLayerType">
     "vector":{
     "url":"<xsl:value-of select="concat(bfs:URL/bfs:host/gco:CharacterString,bfs:URL/bfs:path/gco:CharacterString )" />" ,
-    "layers":"<xsl:value-of select="bfs:layer/gco:CharacterString" />",
-    "styles":"<xsl:value-of select="bfs:styles/gco:CharacterString" />",
+    "layers":"<xsl:apply-templates select="bfs:layer/gco:CharacterString" />",
+    "styles":"<xsl:apply-templates select="bfs:styles/gco:CharacterString" />",
     },
   </xsl:template>
 
   <xsl:template match="bfs:MD_WMTSLayerType">
     "wmts":{
       "url":"<xsl:value-of select="concat(bfs:URL/bfs:host/gco:CharacterString,bfs:URL/bfs:path/gco:CharacterString )" />" ,
-      "layers":"<xsl:value-of select="bfs:layer/gco:CharacterString" />",
-      "tilematrixset":"<xsl:value-of select="bfs:tilematrixset/gco:CharacterString" />",
+      "layers":"<xsl:apply-templates select="bfs:layer/gco:CharacterString" />",
+      "tilematrixset":"<xsl:apply-templates select="bfs:tilematrixset/gco:CharacterString" />",
       "transparent":<xsl:apply-templates select="bfs:transparent/gco:Boolean" />,
-      "version":"<xsl:value-of select="bfs:version/gco:CharacterString" />",
-      "styles":"<xsl:value-of select="bfs:styles/gco:CharacterString" />",
-      "format":"<xsl:value-of select="bfs:format/gco:CharacterString" />"
+      "version":"<xsl:apply-templates select="bfs:version/gco:CharacterString" />",
+      "styles":"<xsl:apply-templates select="bfs:styles/gco:CharacterString" />",
+      "format":"<xsl:apply-templates select="bfs:format/gco:CharacterString" />"
     },
   </xsl:template>
 
@@ -141,6 +145,15 @@
     <xsl:variable name="string3"><xsl:for-each select="tokenize($string2, '\t')"><xsl:sequence select="."></xsl:sequence><xsl:if test="position() != last()">\t</xsl:if></xsl:for-each></xsl:variable>
     <xsl:variable name="string4"><xsl:for-each select="tokenize($string3, '&quot;')"><xsl:sequence select="."></xsl:sequence><xsl:if test="position() != last()">\&quot;</xsl:if></xsl:for-each></xsl:variable>
     <xsl:value-of select="$string4"/>
+  </xsl:template>
+
+  <!-- This is a json value (or empty) -->
+  <xsl:template match="bfs:value/gco:CharacterString" priority="100">
+    <xsl:choose>
+      <xsl:when test="not(string())">""</xsl:when>
+      <xsl:otherwise><xsl:value-of select="." /></xsl:otherwise>
+    </xsl:choose>
+
   </xsl:template>
 
   <xsl:template match="@*|node()">
