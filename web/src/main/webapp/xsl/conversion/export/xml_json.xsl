@@ -16,7 +16,7 @@
   "dspTxt": "<xsl:apply-templates select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:title/gco:CharacterString" />",
   "inspireId": "<xsl:value-of select="bfs:layerInformation/bfs:MD_Layer/bfs:inspireID/gco:CharacterString" />",
   "filters": [
-    <xsl:for-each select="bfs:layerInformation/bfs:MD_Layer/bfs:filter">
+    <xsl:for-each select="bfs:layerInformation/bfs:MD_Layer/bfs:filter[bfs:*]">
       <xsl:apply-templates select="." /><xsl:if test="position() != last()">,</xsl:if>
     </xsl:for-each>
     ],
@@ -62,7 +62,7 @@
     "param":"<xsl:apply-templates select="bfs:paramName/gco:CharacterString" />",
     "timeformat":"<xsl:apply-templates select="bfs:date/bfs:TimeFormat/gco:CharacterString" />",
     "timeinstant":"<xsl:apply-templates select="bfs:date/bfs:TimeInstant/gco:DateTime" />"
-  },
+  }
   </xsl:template>
 
   <xsl:template match="bfs:MD_RodosFilter">
