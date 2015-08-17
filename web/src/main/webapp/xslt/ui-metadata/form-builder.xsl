@@ -324,14 +324,14 @@
   <xsl:template name="render-boxed-element-control">
     <xsl:param name="editInfo"/>
     
-    <xsl:if test="$editInfo/@del = 'true'">
+    <!--<xsl:if test="$editInfo/@del = 'true'">-->
 	    <a class="btn pull-right"
 	       data-gn-click-and-spin="remove({$editInfo/@ref}, {$editInfo/@parent})"
 	       data-gn-field-highlight-remove="{$editInfo/@ref}"
 	       title="{{{{'deleteFieldSet' | translate}}}}">
 	      <i class="fa fa-times text-danger"/>
 	    </a>
-    </xsl:if>
+    <!--</xsl:if>-->
   </xsl:template>
   
   
