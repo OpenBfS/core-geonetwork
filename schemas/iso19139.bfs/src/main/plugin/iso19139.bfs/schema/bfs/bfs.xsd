@@ -309,8 +309,10 @@
 			<xs:extension base="bfs:MD_Filter_Type">
 				<xs:sequence>
 					<xs:element name="paramName" type="gco:CharacterString_PropertyType"/>
-					<xs:element name="value" type="gco:CharacterString_PropertyType" minOccurs="1" maxOccurs="unbounded"/>
+					<xs:element name="paramAlias" type="gco:CharacterString_PropertyType"/>
 					<xs:element name="defaultValue" type="gco:CharacterString_PropertyType"/>
+					<xs:element name="allowedValues" type="gco:CharacterString_PropertyType"/>
+					<xs:element name="operator" type="gco:CharacterString_PropertyType"/>
 					<xs:element name="allowMultipleSelect" type="gco:Boolean_PropertyType"/>
 				</xs:sequence>
 			</xs:extension>

@@ -90,10 +90,9 @@
   {
     "type":"value",
     "param":"<xsl:apply-templates select="bfs:paramName/gco:CharacterString" />",
-    <xsl:for-each select="bfs:value">
-    "value":"<xsl:apply-templates select="gco:CharacterString" />",
-    </xsl:for-each>
-    "defaultValue":"<xsl:value-of select="bfs:defaultValue/gco:CharacterString" />",
+    "defaultValue":"<xsl:apply-templates select="bfs:defaultValue/gco:CharacterString" />",
+    "allowedValues":"<xsl:apply-templates select="bfs:allowedValues/gco:CharacterString" />",
+    "operator":"<xsl:apply-templates select="bfs:operator/gco:CharacterString" />",
     "allowMultipleSelect":"<xsl:apply-templates select="bfs:allowMultipleSelect/gco:Boolean" />"
   }
   </xsl:template>
@@ -145,20 +144,6 @@
     <xsl:variable name="string3"><xsl:for-each select="tokenize($string2, '\t')"><xsl:sequence select="."></xsl:sequence><xsl:if test="position() != last()">\t</xsl:if></xsl:for-each></xsl:variable>
     <xsl:variable name="string4"><xsl:for-each select="tokenize($string3, '&quot;')"><xsl:sequence select="."></xsl:sequence><xsl:if test="position() != last()">\&quot;</xsl:if></xsl:for-each></xsl:variable>
     <xsl:value-of select="$string4"/>
-  </xsl:template>
-
-  <!-- This is a json value (or empty) -->
-  <xsl:template match="bfs:value/gco:CharacterString" priority="100">
-    <xsl:choose>
-      <xsl:when test="not(string()) or (. = '{}')"></xsl:when>
-      <xsl:otherwise>
-        <xsl:variable name="string1"><xsl:for-each select="tokenize(., '\n')"><xsl:sequence select="."></xsl:sequence><xsl:if test="position() != last()">\n</xsl:if></xsl:for-each></xsl:variable>
-        <xsl:variable name="string2"><xsl:for-each select="tokenize($string1, '\r')"><xsl:sequence select="."></xsl:sequence><xsl:if test="position() != last()">\r</xsl:if></xsl:for-each></xsl:variable>
-        <xsl:variable name="string3"><xsl:for-each select="tokenize($string2, '\t')"><xsl:sequence select="."></xsl:sequence><xsl:if test="position() != last()">\t</xsl:if></xsl:for-each></xsl:variable>
-        <xsl:variable name="string4"><xsl:for-each select="tokenize($string3, '&quot;')"><xsl:sequence select="."></xsl:sequence><xsl:if test="position() != last()">\&quot;</xsl:if></xsl:for-each></xsl:variable>
-        <xsl:value-of select="$string4"/>
-      </xsl:otherwise>
-    </xsl:choose>
   </xsl:template>
 
   <xsl:template match="@*|node()">

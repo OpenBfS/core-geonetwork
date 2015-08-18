@@ -107,7 +107,7 @@
       -->
     </for>
 
-    <for name="bfs:value" use="json-validator" />
+    <for name="bfs:value" use="textarea" />
     
   </fields>
 
@@ -341,9 +341,9 @@
       </tab>
 
       <!-- Elements that should not use the "flat" mode -->
-      <flatModeExceptions>
-        <for name="bfs:value"/>
-      </flatModeExceptions>
+      <!--<flatModeExceptions>
+        <for name="bfs:defaultValue"/>
+      </flatModeExceptions>-->
 
       <!--<tab id="default" default="true" mode="fla"true" mode="flat">
         <section xpath="/bfs:MD_Metadata/gmd:identificationInfo"/>

@@ -109,11 +109,6 @@
     <description></description>
   </element>
 
-  <element name="bfs:value">
-    <label>Value</label>
-    <description></description>
-  </element>
-
   <element name="bfs:defaultValue">
     <label>Default Value</label>
     <description></description>
@@ -294,4 +289,25 @@
     <description></description>
   </element>
 
+  <element name="bfs:operator">
+    <label>Operator</label>
+    <description></description>
+    <helper>
+        <option value="=">=</option>
+        <option value="&gt;">&gt;</option>
+        <option value="&lt;">&lt;</option>
+        <option value="&gt;=">&gt;=</option>
+        <option value="&lt;=">&lt;=</option>
+    </helper>
+  </element>
+
+  <element name="bfs:paramAlias">
+    <label>Parameter Alias</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:allowedValues">
+    <label>Allowed values</label>
+    <description></description>
+  </element>
 </labels>
