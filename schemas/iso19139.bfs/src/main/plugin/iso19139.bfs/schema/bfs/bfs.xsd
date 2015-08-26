@@ -292,7 +292,7 @@
 	<xs:element name="MD_Filter" type="bfs:MD_Filter_Type" abstract="true"/>
 	<!-- ........................................................................ -->
 	<xs:complexType name="MD_Filter_PropertyType">
-		<xs:sequence minOccurs="1">
+		<xs:sequence minOccurs="0">
 			<xs:element ref="bfs:MD_Filter"/>
 		</xs:sequence>
 		<xs:attributeGroup ref="gco:ObjectReference"/>
@@ -370,6 +370,8 @@
 					<xs:element name="unit" type="gco:CharacterString_PropertyType"/>
 					<xs:element name="minDate" type="bfs:Date_Type" />
 					<xs:element name="maxDate" type="bfs:Date_Type" />
+					<xs:element name="defaultStartValue" type="bfs:Date_Type" />
+					<xs:element name="defaultEndValue" type="bfs:Date_Type" />
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -396,6 +398,7 @@
 				<xs:sequence>
 					<xs:element name="paramName" type="gco:CharacterString_PropertyType"/>
 					<xs:element name="date" type="bfs:Date_Type" />
+					<xs:element name="defaultValue" type="bfs:Date_Type" />
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
