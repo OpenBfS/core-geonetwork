@@ -30,7 +30,9 @@ Stylesheet used to update metadata adding a reference to a parent record.
 			bfs:wfs|
 			bfs:download|
 			bfs:filter|
-			bfs:olProperty"/>
+			bfs:olProperty|
+			bfs:timeSeriesChartProperty|
+			bfs:barChartProperty"/>
 
 		</xsl:copy>
 	</xsl:template>
