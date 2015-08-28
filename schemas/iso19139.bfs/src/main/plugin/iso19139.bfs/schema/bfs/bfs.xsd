@@ -121,7 +121,9 @@
 		<xs:complexContent>
 			<xs:extension base="bfs:MD_LayerType_Type">
 				<xs:sequence>
-					<xs:element ref="bfs:URL"/>
+					<xs:element ref="bfs:URL"/>    
+                    <xs:element name="format" type="gco:CharacterString_PropertyType"/>     
+                    <xs:element name="params" type="gco:CharacterString_PropertyType"/> 
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -450,7 +452,7 @@
 	<!-- ........................................................................ -->
 	<xs:complexType name="WFS_Type">
 		<xs:sequence>
-			<xs:element ref="bfs:URL"/>
+			<xs:element ref="bfs:URL" minOccurs="0" />
 		</xs:sequence>
 	</xs:complexType>
 	
@@ -463,9 +465,9 @@
 	<!-- ........................................................................ -->
 	<xs:complexType name="Download_Type">
 		<xs:sequence>
-			<xs:element ref="bfs:URL"/>
-			<xs:element name="placeholderStart" type="gco:DateTime_PropertyType"/>
-			<xs:element name="placeholderEnd" type="gco:DateTime_PropertyType"/>
+			<xs:element ref="bfs:URL" minOccurs="0"/>
+			<xs:element name="placeholderStart" type="gco:DateTime_PropertyType" minOccurs="0"/>
+			<xs:element name="placeholderEnd" type="gco:DateTime_PropertyType" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	
