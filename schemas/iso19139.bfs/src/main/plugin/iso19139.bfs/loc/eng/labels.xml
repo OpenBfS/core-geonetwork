@@ -310,4 +310,11 @@
     <label>Allowed values</label>
     <description></description>
   </element>
+
+  <element name="bfs:params">
+    <label>Parameters</label>
+    <description></description>
+  </element>
+
+
 </labels>
