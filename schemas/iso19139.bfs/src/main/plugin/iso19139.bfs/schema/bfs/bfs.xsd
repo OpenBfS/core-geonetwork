@@ -122,8 +122,8 @@
 			<xs:extension base="bfs:MD_LayerType_Type">
 				<xs:sequence>
 					<xs:element ref="bfs:URL"/>    
-                    <xs:element name="format" type="gco:CharacterString_PropertyType"/>     
-                    <xs:element name="params" type="gco:CharacterString_PropertyType"/> 
+					<xs:element name="format" type="gco:CharacterString_PropertyType"/>
+					<xs:element name="params" type="gco:CharacterString_PropertyType"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>

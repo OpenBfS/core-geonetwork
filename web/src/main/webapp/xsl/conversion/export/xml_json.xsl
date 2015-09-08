@@ -114,8 +114,8 @@
   <xsl:template match="bfs:MD_VectorLayerType">
     "vector":{
     "url":"<xsl:value-of select="concat(bfs:URL/bfs:host/gco:CharacterString,bfs:URL/bfs:path/gco:CharacterString )" />" ,
-    "layers":"<xsl:apply-templates select="bfs:layer/gco:CharacterString" />",
-    "styles":"<xsl:apply-templates select="bfs:styles/gco:CharacterString" />",
+    "format":"<xsl:apply-templates select="bfs:format/gco:CharacterString" />",
+    "params":"<xsl:apply-templates select="bfs:params/gco:CharacterString" />"
     },
   </xsl:template>
 
