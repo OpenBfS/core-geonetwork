@@ -3,18 +3,19 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0"
                 xmlns:gco="http://www.isotc211.org/2005/gco"
                 xmlns:gmd="http://www.isotc211.org/2005/gmd"
-                xmlns:bfs="http://geonetwork.org/bfs">
+                xmlns:bfs="http://geonetwork.org/bfs"
+                xmlns:util="java:org.fao.geonet.util.XslUtil">
 
   <!-- ============================================================================================ -->
 
-  <xsl:output indent="no" omit-xml-declaration="yes" method="text" encoding="utf-8"/>
+  <xsl:output indent="no" omit-xml-declaration="yes" method="text" encoding="utf-8"  media-type="text/x-json"/>
   <xsl:strip-space elements="*"/>
 
   <xsl:template match="bfs:MD_Metadata">
 {
-  "id": "<xsl:value-of select="gmd:fileIdentifier/gco:CharacterString" />",
+  "id": "<xsl:apply-templates select="gmd:fileIdentifier/gco:CharacterString" />",
   "dspTxt": "<xsl:apply-templates select="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:title/gco:CharacterString" />",
-  "inspireId": "<xsl:value-of select="bfs:layerInformation/bfs:MD_Layer/bfs:inspireID/gco:CharacterString" />",
+  "inspireId": "<xsl:apply-templates select="bfs:layerInformation/bfs:MD_Layer/bfs:inspireID/gco:CharacterString" />",
   "filters": [
     <xsl:for-each select="bfs:layerInformation/bfs:MD_Layer/bfs:filter[bfs:*]">
       <xsl:apply-templates select="." /><xsl:if test="position() != last()">,</xsl:if>
@@ -139,11 +140,7 @@
   </xsl:template>
   
   <xsl:template match="gco:CharacterString" name="escapeJSON">
-    <xsl:variable name="string1"><xsl:for-each select="tokenize(., '\n')"><xsl:sequence select="."></xsl:sequence><xsl:if test="position() != last()">\n</xsl:if></xsl:for-each></xsl:variable>
-    <xsl:variable name="string2"><xsl:for-each select="tokenize($string1, '\r')"><xsl:sequence select="."></xsl:sequence><xsl:if test="position() != last()">\r</xsl:if></xsl:for-each></xsl:variable>
-    <xsl:variable name="string3"><xsl:for-each select="tokenize($string2, '\t')"><xsl:sequence select="."></xsl:sequence><xsl:if test="position() != last()">\t</xsl:if></xsl:for-each></xsl:variable>
-    <xsl:variable name="string4"><xsl:for-each select="tokenize($string3, '&quot;')"><xsl:sequence select="."></xsl:sequence><xsl:if test="position() != last()">\&quot;</xsl:if></xsl:for-each></xsl:variable>
-    <xsl:value-of select="$string4"/>
+    <xsl:value-of select="util:encodeForJson(.)"/>
   </xsl:template>
 
   <xsl:template match="@*|node()">

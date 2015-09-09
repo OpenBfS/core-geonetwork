@@ -490,4 +490,40 @@ public final class XslUtil
 
 		return ret;
 	}
+
+    public static String encodeForJson(String str) {
+
+        // Replace UTF characters to Unicode representation
+        StringBuilder retStr = new StringBuilder();
+        for(int i=0; i<str.length(); i++) {
+            int cp = Character.codePointAt(str, i);
+            int charCount = Character.charCount(cp);
+            if (charCount > 1) {
+                i += charCount - 1; // 2.
+                if (i >= str.length()) {
+                    throw new IllegalArgumentException("truncated unexpectedly");
+                }
+            }
+
+            if (cp < 128) {
+                retStr.appendCodePoint(cp);
+            } else {
+                retStr.append(String.format("\\u%04x", cp));
+            }
+        }
+
+        String result = retStr.toString();
+
+        result = result.replace("\\","\\\\");
+        result = result.replace("/", "\\/");
+        result = result.replace("\"", "\\\";");
+        result = result.replace("&#xA;","\\n");
+        result = result.replace("&#xD;","\\r");
+        result = result.replace("&#x9;","\\t");
+        result = result.replace("\n","\\n");
+        result = result.replace("\r","\\r");
+        result = result.replace("\t","\\t");
+
+        return result;
+    }
 }
