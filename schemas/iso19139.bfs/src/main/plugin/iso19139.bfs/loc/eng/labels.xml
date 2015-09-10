@@ -317,4 +317,28 @@
   </element>
 
 
+  <element name="bfs:date">
+    <label>Date</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:minDate">
+    <label>Min. Date</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:maxDate">
+    <label>Max. Date</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:defaultStartValue">
+    <label>Default Start Date</label>
+    <description></description>
+  </element>
+
+  <element name="bfs:defaultEndValue">
+    <label>Default End Date</label>
+    <description></description>
+  </element>
 </labels>

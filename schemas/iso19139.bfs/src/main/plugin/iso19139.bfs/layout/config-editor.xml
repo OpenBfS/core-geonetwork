@@ -167,6 +167,12 @@
     <name>bfs:MD_WMSLayerType</name>
     <name>bfs:MD_WMTSLayerType</name>
     <name>bfs:MD_VectorLayerType</name>
+    <name>bfs:date</name>
+    <name>bfs:minDate</name>
+    <name>bfs:maxDate</name>
+    <name>bfs:defaultValue</name>
+    <name>bfs:defaultStartValue</name>
+    <name>bfs:defaultEndValue</name>
   </fieldsWithFieldset>
 
   <multilingualFields>
