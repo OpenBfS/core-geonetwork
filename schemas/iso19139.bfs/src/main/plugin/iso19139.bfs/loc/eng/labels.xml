@@ -341,4 +341,9 @@
     <label>Default End Date</label>
     <description></description>
   </element>
+
+  <element name="bfs:maxDuration">
+    <label>Max. Duration</label>
+    <description></description>
+  </element>
 </labels>

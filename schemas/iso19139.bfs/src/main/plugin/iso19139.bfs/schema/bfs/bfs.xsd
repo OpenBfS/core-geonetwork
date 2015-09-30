@@ -369,6 +369,7 @@
 					<xs:element name="paramName" type="gco:CharacterString_PropertyType"/>
 					<xs:element name="interval" type="gco:Integer_PropertyType" />
 					<xs:element name="unit" type="gco:CharacterString_PropertyType"/>
+					<xs:element name="maxDuration" type="gco:CharacterString_PropertyType" />
 					<xs:element name="minDate" type="bfs:Date_Type" />
 					<xs:element name="maxDate" type="bfs:Date_Type" />
 					<xs:element name="defaultStartValue" type="bfs:Date_Type" />
@@ -398,7 +399,8 @@
 			<xs:extension base="bfs:MD_Filter_Type">
 				<xs:sequence>
 					<xs:element name="paramName" type="gco:CharacterString_PropertyType"/>
-					<xs:element name="date" type="bfs:Date_Type" />
+					<xs:element name="interval" type="gco:Integer_PropertyType" />
+					<xs:element name="unit" type="gco:CharacterString_PropertyType"/>
 					<xs:element name="minDate" type="bfs:Date_Type" />
 					<xs:element name="maxDate" type="bfs:Date_Type" />
 					<xs:element name="defaultValue" type="bfs:Date_Type" />

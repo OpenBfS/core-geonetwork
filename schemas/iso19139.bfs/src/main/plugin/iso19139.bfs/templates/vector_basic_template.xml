@@ -73,9 +73,12 @@
 							<gco:CharacterString/>
 						</bfs:path>
 					</bfs:URL>
-					<bfs:styles gco:nilReason="missing">
+					<bfs:format gco:nilReason="missing">
 						<gco:CharacterString/>
-					</bfs:styles>
+					</bfs:format>
+					<bfs:params gco:nilReason="missing">
+						<gco:CharacterString/>
+					</bfs:params>
 				</bfs:MD_VectorLayerType>
 			</bfs:layerType>
 			<bfs:wfs>

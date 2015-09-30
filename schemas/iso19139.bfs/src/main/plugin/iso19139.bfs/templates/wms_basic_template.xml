@@ -77,7 +77,7 @@
 						<gco:CharacterString/>
 					</bfs:layer>
 					<bfs:transparent>
-						<gco:Boolean/>
+						<gco:Boolean>false</gco:Boolean>
 					</bfs:transparent>
 					<bfs:version gco:nilReason="missing">
 						<gco:CharacterString/>
