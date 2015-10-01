@@ -61,8 +61,14 @@
   {
     "type":"pointintime",
     "param":"<xsl:apply-templates select="bfs:paramName/gco:CharacterString" />",
-    "timeformat":"<xsl:apply-templates select="bfs:date/bfs:TimeFormat/gco:CharacterString" />",
-    "timeinstant":"<xsl:apply-templates select="bfs:date/bfs:TimeInstant/gco:DateTime" />"
+    "interval":"<xsl:value-of select="bfs:interval/gco:Integer" />",
+    "unit":"<xsl:apply-templates select="bfs:unit/gco:CharacterString" />",
+    "mindatetimeformat":"<xsl:apply-templates select="bfs:minDate/bfs:TimeFormat/gco:CharacterString" />",
+    "mindatetimeinstant":"<xsl:apply-templates select="bfs:minDate/bfs:TimeInstant/gco:CharacterString" />",
+    "maxdatetimeformat":"<xsl:apply-templates select="bfs:maxDate/bfs:TimeFormat/gco:CharacterString" />",
+    "maxdatetimeinstant":"<xsl:apply-templates select="bfs:maxDate/bfs:TimeInstant/gco:CharacterString" />",
+    "defaulttimeformat":"<xsl:apply-templates select="bfs:defaultStartValue/bfs:TimeFormat/gco:CharacterString" />",
+    "defaulttimeinstant":"<xsl:apply-templates select="bfs:defaultStartValue/bfs:TimeInstant/gco:CharacterString" />"
   }
   </xsl:template>
 
@@ -80,10 +86,15 @@
     "param":"<xsl:apply-templates select="bfs:paramName/gco:CharacterString" />",
     "interval":"<xsl:value-of select="bfs:interval/gco:Integer" />",
     "unit":"<xsl:apply-templates select="bfs:unit/gco:CharacterString" />",
+    "maxduration":"<xsl:apply-templates select="bfs:maxDuration/gco:CharacterString" />",
     "mindatetimeformat":"<xsl:apply-templates select="bfs:minDate/bfs:TimeFormat/gco:CharacterString" />",
-    "mindatetimeinstant":"<xsl:apply-templates select="bfs:minDate/bfs:TimeInstant/gco:DateTime" />",
+    "mindatetimeinstant":"<xsl:apply-templates select="bfs:minDate/bfs:TimeInstant/gco:CharacterString" />",
     "maxdatetimeformat":"<xsl:apply-templates select="bfs:maxDate/bfs:TimeFormat/gco:CharacterString" />",
-    "maxdatetimeinstant":"<xsl:apply-templates select="bfs:maxDate/bfs:TimeInstant/gco:DateTime" />"
+    "maxdatetimeinstant":"<xsl:apply-templates select="bfs:maxDate/bfs:TimeInstant/gco:CharacterString" />",
+    "defaultstarttimeformat":"<xsl:apply-templates select="bfs:defaultStartValue/bfs:TimeFormat/gco:CharacterString" />",
+    "defaultstarttimeinstant":"<xsl:apply-templates select="bfs:defaultStartValue/bfs:TimeInstant/gco:CharacterString" />",
+    "defaultendtimeformat":"<xsl:apply-templates select="bfs:defaultEndValue/bfs:TimeFormat/gco:CharacterString" />",
+    "defaultendtimeinstant":"<xsl:apply-templates select="bfs:defaultEndValue/bfs:TimeInstant/gco:CharacterString" />"
   }
   </xsl:template>
 
@@ -91,6 +102,7 @@
   {
     "type":"value",
     "param":"<xsl:apply-templates select="bfs:paramName/gco:CharacterString" />",
+    "alias":"<xsl:apply-templates select="bfs:paramAlias/gco:CharacterString" />",
     "defaultValue":"<xsl:apply-templates select="bfs:defaultValue/gco:CharacterString" />",
     "allowedValues":"<xsl:apply-templates select="bfs:allowedValues/gco:CharacterString" />",
     "operator":"<xsl:apply-templates select="bfs:operator/gco:CharacterString" />",
@@ -138,7 +150,7 @@
       <xsl:otherwise>false</xsl:otherwise>
     </xsl:choose>
   </xsl:template>
-  
+
   <xsl:template match="gco:CharacterString" name="escapeJSON">
     <xsl:value-of select="util:encodeForJson(.)"/>
   </xsl:template>

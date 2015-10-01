@@ -1,4 +1,9 @@
 {"config": [{
+    "key": "upgrade-metadata",
+    "type": "fixed-params",
+    "params": [
+    ]
+  }, {
     "key": "url-host-relocator",
     "type": "fixed-params",
     "params": [

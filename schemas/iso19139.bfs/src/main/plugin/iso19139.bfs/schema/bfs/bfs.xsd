@@ -483,7 +483,7 @@
 	<xs:complexType name="Date_Type">
 		<xs:sequence>
 			<xs:element name="TimeFormat" type="gco:CharacterString_PropertyType"/>
-			<xs:element name="TimeInstant" type="gco:Date_PropertyType"/>
+			<xs:element name="TimeInstant" type="gco:CharacterString_PropertyType"/>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>
