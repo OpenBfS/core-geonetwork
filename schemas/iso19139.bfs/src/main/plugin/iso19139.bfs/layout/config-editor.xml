@@ -287,8 +287,12 @@
                       <gco:CharacterString></gco:CharacterString>
                     </bfs:path>
                   </bfs:URL>
-                  <bfs:placeholderStart><gco:DateTime /></bfs:placeholderStart>
-                  <bfs:placeholderEnd><gco:DateTime /></bfs:placeholderEnd>
+                  <bfs:filterFieldStart gco:nilReason="missing">
+                    <gco:CharacterString />
+                  </bfs:filterFieldStart>
+                  <bfs:filterFieldEnd gco:nilReason="missing">
+                    <gco:CharacterString />
+                  </bfs:filterFieldEnd>
                 </bfs:download>
               </snippet>
             </template>

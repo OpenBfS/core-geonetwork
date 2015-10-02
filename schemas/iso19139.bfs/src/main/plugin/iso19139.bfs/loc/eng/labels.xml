@@ -119,13 +119,13 @@
     <description></description>
   </element>
 
-  <element name="bfs:placeholderStart">
-    <label>Placeholder Start</label>
+  <element name="bfs:filterFieldStart">
+    <label>Filter Field Start</label>
     <description></description>
   </element>
 
-  <element name="bfs:placeholderEnd">
-    <label>Placeholder End</label>
+  <element name="bfs:filterFieldEnd">
+    <label>Filter Field End</label>
     <description></description>
   </element>
 

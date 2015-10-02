@@ -52,7 +52,9 @@
 
   <xsl:template match="bfs:download">
     "download":{
-      "url":"<xsl:value-of select="concat(bfs:URL/bfs:host/gco:CharacterString,bfs:URL/bfs:path/gco:CharacterString )" />"
+      "url":"<xsl:value-of select="concat(bfs:URL/bfs:host/gco:CharacterString,bfs:URL/bfs:path/gco:CharacterString )" />",
+      "filterFieldStart":"<xsl:value-of select="bfs:filterFieldStart/gco:CharacterString" />",
+      "filterFieldEnd":"<xsl:value-of select="bfs:filterFieldEnd/gco:CharacterString" />"
     },
   </xsl:template>
 

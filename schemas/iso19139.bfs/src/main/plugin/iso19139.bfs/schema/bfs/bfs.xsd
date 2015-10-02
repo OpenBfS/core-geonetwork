@@ -468,8 +468,8 @@
 	<xs:complexType name="Download_Type">
 		<xs:sequence>
 			<xs:element ref="bfs:URL" minOccurs="0"/>
-			<xs:element name="placeholderStart" type="gco:DateTime_PropertyType" minOccurs="0"/>
-			<xs:element name="placeholderEnd" type="gco:DateTime_PropertyType" minOccurs="0"/>
+			<xs:element name="filterFieldStart" type="gco:CharacterString_PropertyType" minOccurs="0"/>
+			<xs:element name="filterFieldEnd" type="gco:CharacterString_PropertyType" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	

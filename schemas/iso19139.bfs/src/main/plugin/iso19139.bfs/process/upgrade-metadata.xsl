@@ -225,7 +225,6 @@ Stylesheet used to upgrade legacy bfs metadata.
       <xsl:choose>
         <xsl:when test="bfs:paramAlias">
           <xsl:apply-templates select="bfs:paramAlias" />
-
         </xsl:when>
         <xsl:otherwise>
           <bfs:paramAlias gco:nilReason="missing">
@@ -269,7 +268,16 @@ Stylesheet used to upgrade legacy bfs metadata.
         </xsl:otherwise>
       </xsl:choose>
 
-      <xsl:apply-templates select="bfs:allowMultipleSelect" />
+      <xsl:choose>
+        <xsl:when test="bfs:allowMultipleSelect">
+          <xsl:apply-templates select="bfs:allowMultipleSelect" />
+        </xsl:when>
+        <xsl:otherwise>
+          <bfs:allowMultipleSelect>
+            <gco:Boolean>false</gco:Boolean>
+          </bfs:allowMultipleSelect>
+        </xsl:otherwise>
+      </xsl:choose>
 
     </xsl:copy>
   </xsl:template>
@@ -293,6 +301,51 @@ Stylesheet used to upgrade legacy bfs metadata.
     </xsl:copy>
   </xsl:template>
 
+  <!-- download -->
+  <xsl:template match="bfs:download">
+    <xsl:copy>
+      <xsl:copy-of select="@*" />
+
+      <xsl:apply-templates select="bfs:URL" />
+
+      <xsl:choose>
+        <xsl:when test="bfs:placeholderStart">
+          <xsl:apply-templates select="bfs:placeholderStart" />
+        </xsl:when>
+        <xsl:otherwise>
+          <bfs:filterFieldStart gco:nilReason="missing">
+            <gco:CharacterString/>
+          </bfs:filterFieldStart>
+        </xsl:otherwise>
+      </xsl:choose>
+
+      <xsl:choose>
+        <xsl:when test="bfs:placeholderEnd">
+          <xsl:apply-templates select="bfs:placeholderEnd" />
+        </xsl:when>
+        <xsl:otherwise>
+          <bfs:filterFieldEnd gco:nilReason="missing">
+            <gco:CharacterString/>
+          </bfs:filterFieldEnd>
+        </xsl:otherwise>
+      </xsl:choose>
+
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- placeholderStart translated to filterFieldStart -->
+  <xsl:template match="bfs:placeholderStart">
+    <bfs:filterFieldStart>
+      <gco:CharacterString><xsl:value-of select="*" /></gco:CharacterString>
+    </bfs:filterFieldStart>
+  </xsl:template>
+
+  <!-- placeholderEnd translated to filterFieldEnd -->
+  <xsl:template match="bfs:placeholderEnd">
+    <bfs:filterFieldEnd>
+      <gco:CharacterString><xsl:value-of select="*" /></gco:CharacterString>
+    </bfs:filterFieldEnd>
+  </xsl:template>
 
   <!-- Do a copy of every nodes and attributes -->
   <xsl:template match="@*|node()">
