@@ -661,7 +661,7 @@ INSERT INTO Settings (name, value, datatype, position, internal) VALUES
   ('map/isSaveMapInCatalogAllowed', 'true', 2, 9594, 'n');
 
 INSERT INTO Settings (name, value, datatype, position, internal) VALUES 
-  ('metadata/editor/schemaConfig', '{"iso19110":{"defaultTab":"default","displayToolTip":false,"related":{"display":true,"readonly":true,"categories":["dataset"]},"validation":{"display":true}},"iso19139":{"defaultTab":"default","displayToolTip":false,"related":{"display":true,"categories":[]},"suggestion":{"display":true},"validation":{"display":true}},"dublin-core":{"defaultTab":"default","related":{"display":true,"readonly":false,"categories":["parent","onlinesrc"]}},,"iso19139.bfs":{"defaultTab":"default","displayToolTip":false,"related":{"display":true,"categories":["inspire"]},"suggestion":{"display":false},"validation":{"display":false}}}', 0, 10000, 'n');
+  ('metadata/editor/schemaConfig', '{"iso19110":{"defaultTab":"default","displayToolTip":false,"related":{"display":true,"readonly":true,"categories":["dataset"]},"validation":{"display":true}},"iso19139":{"defaultTab":"default","displayToolTip":false,"related":{"display":true,"categories":[]},"suggestion":{"display":true},"validation":{"display":true}},"dublin-core":{"defaultTab":"default","related":{"display":true,"readonly":false,"categories":["parent","onlinesrc"]}},"iso19139.bfs":{"defaultTab":"default","displayToolTip":false,"related":{"display":true,"categories":["inspire"]},"suggestion":{"display":false},"validation":{"display":true}}}', 0, 10000, 'n');
 
 
 INSERT INTO Settings (name, value, datatype, position, internal) VALUES ('metadata/resourceIdentifierPrefix', 'http://localhost:8080/geonetwork/srv/metadata/', 0, 10001, 'n');
