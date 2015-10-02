@@ -100,6 +100,12 @@
 						<gco:CharacterString/>
 					</bfs:path>
 				</bfs:URL>
+				<bfs:filterFieldStart gco:nilReason="missing">
+					<gco:CharacterString />
+				</bfs:filterFieldStart>
+				<bfs:filterFieldEnd gco:nilReason="missing">
+					<gco:CharacterString />
+				</bfs:filterFieldEnd>
 			</bfs:download>
 		</bfs:MD_Layer>
 	</bfs:layerInformation>
