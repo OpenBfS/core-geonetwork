@@ -13,6 +13,7 @@ import jeeves.component.ProfileManager;
 import jeeves.server.ServiceConfig;
 import jeeves.server.context.ServiceContext;
 
+import org.apache.commons.lang.StringEscapeUtils;
 import org.fao.geonet.GeonetContext;
 import org.fao.geonet.constants.Geonet;
 import org.fao.geonet.kernel.SchemaManager;
@@ -28,6 +29,10 @@ import org.geotools.geometry.jts.ReferencedEnvelope;
 import org.geotools.referencing.CRS;
 import org.jdom.Element;
 import org.jdom.Namespace;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONStringer;
+import org.json.JSONWriter;
 import org.opengis.referencing.crs.CoordinateReferenceSystem;
 
 /**
@@ -492,38 +497,55 @@ public final class XslUtil
 	}
 
     public static String encodeForJson(String str) {
+        if(str != null && str.length() != 0) {
+            char c = 0;
+            int len = str.length();
+            StringBuffer sb = new StringBuffer(len + 4);
 
-        // Replace UTF characters to Unicode representation
-        StringBuilder retStr = new StringBuilder();
-        for(int i=0; i<str.length(); i++) {
-            int cp = Character.codePointAt(str, i);
-            int charCount = Character.charCount(cp);
-            if (charCount > 1) {
-                i += charCount - 1; // 2.
-                if (i >= str.length()) {
-                    throw new IllegalArgumentException("truncated unexpectedly");
+            for(int i = 0; i < len; ++i) {
+                char b = c;
+                c = str.charAt(i);
+                switch(c) {
+                    case '\b':
+                        sb.append("\\b");
+                        continue;
+                    case '\t':
+                        sb.append("\\t");
+                        continue;
+                    case '\n':
+                        sb.append("\\n");
+                        continue;
+                    case '\f':
+                        sb.append("\\f");
+                        continue;
+                    case '\r':
+                        sb.append("\\r");
+                        continue;
+                    case '\"':
+                    case '\\':
+                        sb.append('\\');
+                        sb.append(c);
+                        continue;
+                    case '/':
+                        if(b == 60) {
+                            sb.append('\\');
+                        }
+
+                        sb.append(c);
+                        continue;
+                }
+
+                if (c >= 32 && (c < 128 || c >= 160) && (c < 8192 || c >= 8448)) {
+                    sb.append(c);
+                } else {
+                    String t = "000" + Integer.toHexString(c);
+                    sb.append("\\u" + t.substring(t.length() - 4));
                 }
             }
 
-            if (cp < 128) {
-                retStr.appendCodePoint(cp);
-            } else {
-                retStr.append(String.format("\\u%04x", cp));
-            }
+            return sb.toString();
+        } else {
+            return "";
         }
-
-        String result = retStr.toString();
-
-        result = result.replace("\\","\\\\");
-        result = result.replace("/", "\\/");
-        result = result.replace("\"", "\\\";");
-        result = result.replace("&#xA;","\\n");
-        result = result.replace("&#xD;","\\r");
-        result = result.replace("&#x9;","\\t");
-        result = result.replace("\n","\\n");
-        result = result.replace("\r","\\r");
-        result = result.replace("\t","\\t");
-
-        return result;
     }
 }
