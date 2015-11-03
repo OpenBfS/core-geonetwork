@@ -69,8 +69,8 @@
     "mindatetimeinstant":"<xsl:apply-templates select="bfs:minDate/bfs:TimeInstant/gco:CharacterString" />",
     "maxdatetimeformat":"<xsl:apply-templates select="bfs:maxDate/bfs:TimeFormat/gco:CharacterString" />",
     "maxdatetimeinstant":"<xsl:apply-templates select="bfs:maxDate/bfs:TimeInstant/gco:CharacterString" />",
-    "defaulttimeformat":"<xsl:apply-templates select="bfs:defaultStartValue/bfs:TimeFormat/gco:CharacterString" />",
-    "defaulttimeinstant":"<xsl:apply-templates select="bfs:defaultStartValue/bfs:TimeInstant/gco:CharacterString" />"
+    "defaulttimeformat":"<xsl:apply-templates select="bfs:defaultValue/bfs:TimeFormat/gco:CharacterString" />",
+    "defaulttimeinstant":"<xsl:apply-templates select="bfs:defaultValue/bfs:TimeInstant/gco:CharacterString" />"
   }
   </xsl:template>
 
