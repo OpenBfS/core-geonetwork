@@ -45,16 +45,22 @@
   </xsl:template>
 
   <xsl:template match="bfs:wfs">
+    <xsl:variable name="host"><xsl:apply-templates select="bfs:URL/bfs:host/gco:CharacterString" /></xsl:variable>
+    <xsl:variable name="path"><xsl:apply-templates select="bfs:URL/bfs:path/gco:CharacterString" /></xsl:variable>
+
     "wfs":{
-      "url":"<xsl:value-of select="concat(bfs:URL/bfs:host/gco:CharacterString,bfs:URL/bfs:path/gco:CharacterString )" />"
+      "url":"<xsl:value-of select="concat(normalize-space($host),normalize-space($path))" />"
     },
   </xsl:template>
 
   <xsl:template match="bfs:download">
+    <xsl:variable name="host"><xsl:apply-templates select="bfs:URL/bfs:host/gco:CharacterString" /></xsl:variable>
+    <xsl:variable name="path"><xsl:apply-templates select="bfs:URL/bfs:path/gco:CharacterString" /></xsl:variable>
+
     "download":{
-      "url":"<xsl:value-of select="concat(bfs:URL/bfs:host/gco:CharacterString,bfs:URL/bfs:path/gco:CharacterString )" />",
-      "filterFieldStart":"<xsl:value-of select="bfs:filterFieldStart/gco:CharacterString" />",
-      "filterFieldEnd":"<xsl:value-of select="bfs:filterFieldEnd/gco:CharacterString" />"
+    "url":"<xsl:value-of select="concat(normalize-space($host),normalize-space($path))" />",
+      "filterFieldStart":"<xsl:apply-templates select="bfs:filterFieldStart/gco:CharacterString" />",
+      "filterFieldEnd":"<xsl:apply-templates select="bfs:filterFieldEnd/gco:CharacterString" />"
     },
   </xsl:template>
 
@@ -75,10 +81,13 @@
   </xsl:template>
 
   <xsl:template match="bfs:MD_RodosFilter">
-  {
+    <xsl:variable name="host"><xsl:apply-templates select="bfs:URL/bfs:host/gco:CharacterString" /></xsl:variable>
+    <xsl:variable name="path"><xsl:apply-templates select="bfs:URL/bfs:path/gco:CharacterString" /></xsl:variable>
+
+    {
     "type":"rodos",
     "param":"<xsl:apply-templates select="bfs:paramName/gco:CharacterString" />",
-    "url":"<xsl:value-of select="concat(bfs:URL/bfs:host/gco:CharacterString,bfs:URL/bfs:path/gco:CharacterString )" />"
+    "url":"<xsl:value-of select="concat(normalize-space($host),normalize-space($path))" />"
   }
   </xsl:template>
 
@@ -115,8 +124,11 @@
 
   <!-- Layer type templates -->
   <xsl:template match="bfs:MD_WMSLayerType">
+    <xsl:variable name="host"><xsl:apply-templates select="bfs:URL/bfs:host/gco:CharacterString" /></xsl:variable>
+    <xsl:variable name="path"><xsl:apply-templates select="bfs:URL/bfs:path/gco:CharacterString" /></xsl:variable>
+
     "wms":{
-      "url":"<xsl:value-of select="concat(bfs:URL/bfs:host/gco:CharacterString,bfs:URL/bfs:path/gco:CharacterString )" />" ,
+      "url":"<xsl:value-of select="concat(normalize-space($host),normalize-space($path))" />" ,
       "layers":"<xsl:apply-templates select="bfs:layer/gco:CharacterString" />",
       "transparent":"<xsl:apply-templates select="bfs:transparent/gco:Boolean" />",
       "version":"<xsl:apply-templates select="bfs:version/gco:CharacterString" />",
@@ -127,16 +139,22 @@
 
 
   <xsl:template match="bfs:MD_VectorLayerType">
+    <xsl:variable name="host"><xsl:apply-templates select="bfs:URL/bfs:host/gco:CharacterString" /></xsl:variable>
+    <xsl:variable name="path"><xsl:apply-templates select="bfs:URL/bfs:path/gco:CharacterString" /></xsl:variable>
+
     "vector":{
-    "url":"<xsl:value-of select="concat(bfs:URL/bfs:host/gco:CharacterString,bfs:URL/bfs:path/gco:CharacterString )" />" ,
+    "url":"<xsl:value-of select="concat(normalize-space($host),normalize-space($path))" />" ,
     "format":"<xsl:apply-templates select="bfs:format/gco:CharacterString" />",
     "params":"<xsl:apply-templates select="bfs:params/gco:CharacterString" />"
     },
   </xsl:template>
 
   <xsl:template match="bfs:MD_WMTSLayerType">
+    <xsl:variable name="host"><xsl:apply-templates select="bfs:URL/bfs:host/gco:CharacterString" /></xsl:variable>
+    <xsl:variable name="path"><xsl:apply-templates select="bfs:URL/bfs:path/gco:CharacterString" /></xsl:variable>
+
     "wmts":{
-      "url":"<xsl:value-of select="concat(bfs:URL/bfs:host/gco:CharacterString,bfs:URL/bfs:path/gco:CharacterString )" />" ,
+     "url":"<xsl:value-of select="concat(normalize-space($host),normalize-space($path))" />" ,
       "layers":"<xsl:apply-templates select="bfs:layer/gco:CharacterString" />",
       "tilematrixset":"<xsl:apply-templates select="bfs:tilematrixset/gco:CharacterString" />",
       "transparent":"<xsl:apply-templates select="bfs:transparent/gco:Boolean" />",
