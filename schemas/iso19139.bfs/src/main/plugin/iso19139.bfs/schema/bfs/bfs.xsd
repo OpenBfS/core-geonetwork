@@ -376,6 +376,7 @@
 					<xs:element name="maxDate" type="bfs:Date_Type" />
 					<xs:element name="defaultStartValue" type="bfs:Date_Type" />
 					<xs:element name="defaultEndValue" type="bfs:Date_Type" />
+					<xs:element name="encodeInViewParams" type="gco:Boolean_PropertyType"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -406,6 +407,7 @@
 					<xs:element name="minDate" type="bfs:Date_Type" />
 					<xs:element name="maxDate" type="bfs:Date_Type" />
 					<xs:element name="defaultValue" type="bfs:Date_Type" />
+					<xs:element name="encodeInViewParams" type="gco:Boolean_PropertyType"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>

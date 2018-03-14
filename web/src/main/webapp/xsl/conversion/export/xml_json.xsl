@@ -70,6 +70,7 @@
   {
     "type":"pointintime",
     "param":"<xsl:apply-templates select="bfs:paramName/gco:CharacterString" />",
+    "encodeInViewParams":"<xsl:apply-templates select="bfs:encodeInViewParams/gco:Boolean" />",
     "interval":"<xsl:value-of select="bfs:interval/gco:Integer" />",
     "unit":"<xsl:apply-templates select="bfs:unit/gco:CharacterString" />",
     "mindatetimeformat":"<xsl:apply-templates select="bfs:minDate/bfs:TimeFormat/gco:CharacterString" />",
@@ -96,6 +97,7 @@
   {
     "type":"timerange",
     "param":"<xsl:apply-templates select="bfs:paramName/gco:CharacterString" />",
+    "encodeInViewParams":"<xsl:apply-templates select="bfs:encodeInViewParams/gco:Boolean" />",
     "interval":"<xsl:value-of select="bfs:interval/gco:Integer" />",
     "unit":"<xsl:apply-templates select="bfs:unit/gco:CharacterString" />",
     "maxduration":"<xsl:apply-templates select="bfs:maxDuration/gco:CharacterString" />",
