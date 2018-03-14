@@ -272,6 +272,9 @@
             xpath="/bfs:MD_Metadata/bfs:layerInformation/bfs:MD_Layer/bfs:printTitle"/>
 
           <field
+            xpath="/bfs:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:abstract"/>
+
+          <field
             xpath="/bfs:MD_Metadata/bfs:layerInformation/bfs:MD_Layer/bfs:layerType" or="layerType" in="/bfs:MD_Metadata/bfs:layerInformation/bfs:MD_Layer"/>
 
           <field
