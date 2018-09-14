@@ -47,6 +47,7 @@
     function($scope, gnSearchSettings) {
       $scope.searchObj = {
         permalink: false,
+        internal: true,
         filters: gnSearchSettings.filters,
         params: {
           sortBy: 'popularity',
@@ -62,6 +63,7 @@
     function($scope, gnSearchSettings) {
       $scope.searchObj = {
         permalink: false,
+        internal: true,
         filters: gnSearchSettings.filters,
         params: {
           sortBy: 'changeDate',
@@ -79,6 +81,7 @@
         'search/resultsview/partials/viewtemplates/grid4maps.html';
       $scope.searchObj = {
         permalink: false,
+        internal: true,
         filters: {
           'type': 'interactiveMap'
         },
@@ -127,6 +130,7 @@
       $scope.$location = $location;
       $scope.activeTab = '/home';
       $scope.resultTemplate = gnSearchSettings.resultTemplate;
+      $scope.advandedSearchTemplate = gnSearchSettings.advancedSearchTemplate;
       $scope.facetsSummaryType = gnSearchSettings.facetsSummaryType;
       $scope.facetConfig = gnSearchSettings.facetConfig;
       $scope.facetTabField = gnSearchSettings.facetTabField;
