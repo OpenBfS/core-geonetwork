@@ -15,4 +15,5 @@
 	url = https://github.com/geonetwork/doc.git
 [submodule "schemas/iso19139.bfs"]
 	path = schemas/iso19139.bfs
-	url = https://redmine-koala.bfs.de/scm/git/gis_iso19139.bfs
+#	url = https://redmine-koala.bfs.de/scm/git/gis_iso19139.bfs
+	url = https://github.com/OpenBfS/iso19139.bfs.git
